@@ -8,6 +8,15 @@
 - [Quantification](ase_analysis_notebook.md)
 - [Simulations](simulations.md)
 
-### Other
+### Bulk expression analysis
 - [Human comparisons](human_notebook.md)
 - [Gene-expression analysis](gene_expression_notebook.md)
+
+## Single-cell analysis
+
+* scRNA-seq
+
+* scATAC-seq
+
+* Seurat (joint integration)
+

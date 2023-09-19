@@ -1,0 +1,3 @@
+[submodule "bulk_transcriptome"]
+	path = bulk_transcriptome
+	url = git@github.com:sarbal/ayotochtli

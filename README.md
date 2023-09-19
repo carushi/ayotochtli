@@ -1,12 +1,23 @@
-# The nine-banded armadillo 
-Armadillo comes from the Spanish meaning "little armoured one". 
-The Aztecs called them "āyōtōchtli", Nahuatl for "turtle-rabbit". 
-
-<img src="./imgs/quatrefoil.png" width="390" title=""> 
-
-This is the github repository for the armadillo project. 
-Please find our preprint here: https://www.biorxiv.org/content/10.1101/2019.12.11.873265v1
+# Single-cell RNA-seq and ATAC-seq analysis for nine-banded armadillo quadruplets
 
 
+## Reference
 
+### Preprint 
+
+* Risa K Kawaguchi†, Sara Ballouz†, Maria T. Pena, Frank M. Knight, Linda B. Adams, Jesse A. Gillis\*. (in prep)
+  * † Equally contributed. \* Corresponding.
+
+### Related project where bulk transcriptome data Allele-specific expression
+
+* The transcriptional legacy of developmental stochasticity
+
+* Sara Ballouz, Maria T. Pena, Frank M. Knight, Linda B. Adams, Jesse A. Gillis
+  * bioRxiv 2019.12.11.873265; doi: https://doi.org/10.1101/2019.12.11.873265
+* Sara Ballouz , Risa Kawaguchi , Maria Pena , Stephan Fischer , Megan Crow , Leon French , Frank Knight , Linda Adams
+  * Under review
+
+
+
+ 
 
