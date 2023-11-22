@@ -1,0 +1,364 @@
+"Liver.Cell.Group","Gene","Log2FC.infected.vs.uninfected"
+"1","Hepatocyte","LEAP2",6.325083771
+"2","Hepatocyte","LECT2",5.141054983
+"3","Hepatocyte","BAAT",4.307699139
+"4","Hepatocyte","RGN",4.243056263
+"5","Hepatocyte","CHI3L1",4.031304073
+"6","Hepatocyte","ACOX2",3.890290453
+"7","Hepatocyte","AKR1D1",3.855887336
+"8","Hepatocyte","VNN1",3.685316774
+"9","Hepatocyte","ALB",3.553387857
+"10","Hepatocyte","ABHD14B",3.539904867
+"11","Hepatocyte","PECR",3.53484625
+"12","Hepatocyte","PBLD",3.482512478
+"13","Hepatocyte","SERPINA11",3.474816378
+"14","Hepatocyte","DHRS1",3.445786082
+"15","Hepatocyte","IGF1",3.225062956
+"16","Hepatocyte","PON2",3.152092678
+"17","Hepatocyte","SPP2",3.06446784
+"18","Hepatocyte","SLC22A9",3.049402594
+"19","Hepatocyte","HAO1",3.049042856
+"20","Hepatocyte","SERPINF2",3.035568881
+"21","Hepatocyte","BHMT",2.997160663
+"22","Hepatocyte","HABP2",2.97168736
+"23","Hepatocyte","PXDC1",2.96089356
+"24","Hepatocyte","CAT",2.954006044
+"25","Hepatocyte","C9",2.93296303
+"26","Hepatocyte","HOGA1",2.911958349
+"27","Hepatocyte","CA2",2.897431606
+"28","Hepatocyte","RAB17",2.861012876
+"29","Hepatocyte","HMGCL",2.843806539
+"30","Hepatocyte","MTHFD1",2.838439831
+"31","Hepatocyte","TNFSF14",2.837738164
+"32","Hepatocyte","NIPSNAP1",2.794424322
+"33","Hepatocyte","ETFA",2.785490579
+"34","Hepatocyte","AHCY",2.778792069
+"35","Hepatocyte","GPX3",2.778546459
+"36","Hepatocyte","SLC22A7",2.738514294
+"37","Hepatocyte","ACAA2",2.70793416
+"38","Hepatocyte","PLIN5",2.70457442
+"39","Hepatocyte","HADHB",2.698119712
+"40","Hepatocyte","PROZ",2.697402141
+"41","Hepatocyte","NIT2",2.69267909
+"42","Hepatocyte","A2M",2.67717993
+"43","Hepatocyte","GATM",2.670790025
+"44","Hepatocyte","COMT",2.630958447
+"45","Hepatocyte","LBP",2.622656959
+"46","Hepatocyte","ABCA8",2.621864951
+"47","Hepatocyte","EPHX2",2.601973129
+"48","Hepatocyte","GJB1",2.574579177
+"49","Hepatocyte","LRG1",2.556786126
+"50","Hepatocyte","C11orf54",2.554860004
+"51","Hepatocyte","SHMT1",2.554851403
+"52","Hepatocyte","ACO1",2.534566321
+"53","Hepatocyte","PKLR",2.528729501
+"54","Hepatocyte","ASGR1",2.516578616
+"55","Hepatocyte","APOA5",2.512661784
+"56","Hepatocyte","FAM20A",2.48547314
+"57","Hepatocyte","SERPINF1",2.473911276
+"58","Hepatocyte","FN1",2.465680855
+"59","Hepatocyte","RETSAT",2.46174241
+"60","Hepatocyte","SERPINA3",2.461563484
+"61","Hepatocyte","MST1",2.423308056
+"62","Hepatocyte","CD81",2.419600574
+"63","Hepatocyte","PDIA4",2.417228739
+"64","Hepatocyte","DPYS",2.413282394
+"65","Hepatocyte","IDO2",2.380293433
+"66","Hepatocyte","FMO4",2.378436287
+"67","Hepatocyte","ACMSD",2.368588717
+"68","Hepatocyte","ST3GAL6",2.341590611
+"69","Hepatocyte","ACSL5",2.331874721
+"70","Hepatocyte","RBP5",2.321733103
+"71","Hepatocyte","SDC4",2.315266898
+"72","Hepatocyte","BPHL",2.308924167
+"73","Hepatocyte","F11",2.298912064
+"74","Hepatocyte","DCPS",2.265440575
+"75","Hepatocyte","HGD",2.26296408
+"76","Hepatocyte","TMEM59",2.258183978
+"77","Hepatocyte","ALDH1B1",2.255326052
+"78","Hepatocyte","DDC",2.244891585
+"79","Hepatocyte","CYP39A1",2.244162007
+"80","Hepatocyte","LURAP1L",2.242928631
+"81","Hepatocyte","CDA",2.237783624
+"82","Hepatocyte","OTC",2.226733967
+"83","Hepatocyte","PEX19",2.225946352
+"84","Hepatocyte","MAN1A1",2.223053573
+"85","Hepatocyte","IGF2",2.199031388
+"86","Hepatocyte","GSTZ1",2.19279524
+"87","Hepatocyte","TKFC",2.16960898
+"88","Hepatocyte","HADHA",2.165843563
+"89","Hepatocyte","MRPL34",2.159796831
+"90","Hepatocyte","CSAD",2.154481131
+"91","Hepatocyte","SERPINA5",2.15434318
+"92","Hepatocyte","C1S",2.149826815
+"93","Hepatocyte","CYP8B1",2.144937478
+"94","Hepatocyte","AGTR1",2.138380417
+"95","Hepatocyte","MSRA",2.125580103
+"96","Hepatocyte","ALDH1L1",2.124612749
+"97","Hepatocyte","PIPOX",2.102743863
+"98","Hepatocyte","HRG",2.070018948
+"99","Hepatocyte","TMEM230",2.066150515
+"100","Hepatocyte","F9",2.062170537
+"101","Hepatocyte","LAP3",2.06127085
+"102","Hepatocyte","F5",2.057556374
+"103","Hepatocyte","GNE",2.047497264
+"104","Hepatocyte","PGM1",2.034209157
+"105","Hepatocyte","CHRD",2.020201735
+"106","Hepatocyte","GPLD1",2.017895579
+"107","Hepatocyte","ACADSB",2.008156263
+"108","Hepatocyte","CEBPB",1.973590766
+"109","Hepatocyte","LGR4",1.969830104
+"110","Hepatocyte","NR1H4",1.882686491
+"111","Hepatocyte","RBP4",1.851459342
+"112","Hepatocyte","EGR1",1.840237954
+"113","Hepatocyte","FOXA2",1.482441839
+"114","Hepatocyte","IGFBP2",-3.120423368
+"115","Hepatocyte","IGFBP1",-3.073386227
+"116","Hepatocyte","MGLL",-2.432650744
+"117","Hepatocyte","USP2",-2.219163259
+"118","Hepatocyte","KLF6",-2.213479236
+"119","Hepatocyte","FST",-2.086784342
+"120","Hepatocyte","EIF5",-2.072631449
+"121","Hepatocyte","EGFR",-1.31665272
+"122","Hepatocyte","APOA2",-1.268542911
+"123","Hepatocyte","KLF9",-0.820229656
+"124","Cholangiocyte (EPCAM+/bilary)","TM4SF1",4.056724852
+"125","Cholangiocyte (EPCAM+/bilary)","CST3",3.470104663
+"126","Cholangiocyte (EPCAM+/bilary)","GSTK1",3.22830796
+"127","Cholangiocyte (EPCAM+/bilary)","PON2",3.152092678
+"128","Cholangiocyte (EPCAM+/bilary)","TPI1",3.132521468
+"129","Cholangiocyte (EPCAM+/bilary)","CLDN4",3.02070184
+"130","Cholangiocyte (EPCAM+/bilary)","SNX3",3.006705402
+"131","Cholangiocyte (EPCAM+/bilary)","SLC37A4",2.995882267
+"132","Cholangiocyte (EPCAM+/bilary)","WDR72",2.988315768
+"133","Cholangiocyte (EPCAM+/bilary)","PPA1",2.986445904
+"134","Cholangiocyte (EPCAM+/bilary)","HABP2",2.97168736
+"135","Cholangiocyte (EPCAM+/bilary)","PXDC1",2.96089356
+"136","Cholangiocyte (EPCAM+/bilary)","PLK2",2.933760393
+"137","Cholangiocyte (EPCAM+/bilary)","HOGA1",2.911958349
+"138","Cholangiocyte (EPCAM+/bilary)","CA2",2.897431606
+"139","Cholangiocyte (EPCAM+/bilary)","RAB17",2.861012876
+"140","Cholangiocyte (EPCAM+/bilary)","LDOC1",2.845161944
+"141","Cholangiocyte (EPCAM+/bilary)","AHCY",2.778792069
+"142","Cholangiocyte (EPCAM+/bilary)","CTSH",2.774350841
+"143","Cholangiocyte (EPCAM+/bilary)","ACAA2",2.70793416
+"144","Cholangiocyte (EPCAM+/bilary)","HADHB",2.698119712
+"145","Cholangiocyte (EPCAM+/bilary)","FGFR4",2.652370988
+"146","Cholangiocyte (EPCAM+/bilary)","COMT",2.630958447
+"147","Cholangiocyte (EPCAM+/bilary)","ANXA4",2.625730408
+"148","Cholangiocyte (EPCAM+/bilary)","CHCHD2",2.611856767
+"149","Cholangiocyte (EPCAM+/bilary)","GJB1",2.574579177
+"150","Cholangiocyte (EPCAM+/bilary)","TMED10",2.572875354
+"151","Cholangiocyte (EPCAM+/bilary)","C11orf54",2.554860004
+"152","Cholangiocyte (EPCAM+/bilary)","SERPINA3",2.461563484
+"153","Cholangiocyte (EPCAM+/bilary)","SMARCD2",2.445555493
+"154","Cholangiocyte (EPCAM+/bilary)","TAGLN2",2.403817872
+"155","Cholangiocyte (EPCAM+/bilary)","LGALS3",2.337176889
+"156","Cholangiocyte (EPCAM+/bilary)","SDC4",2.315266898
+"157","Cholangiocyte (EPCAM+/bilary)","HNRNPK",2.294941159
+"158","Cholangiocyte (EPCAM+/bilary)","TNKS1BP1",2.28405269
+"159","Cholangiocyte (EPCAM+/bilary)","DCPS",2.265440575
+"160","Cholangiocyte (EPCAM+/bilary)","TMEM59",2.258183978
+"161","Cholangiocyte (EPCAM+/bilary)","ALDH1B1",2.255326052
+"162","Cholangiocyte (EPCAM+/bilary)","FKBP4",2.247107888
+"163","Cholangiocyte (EPCAM+/bilary)","LURAP1L",2.242928631
+"164","Cholangiocyte (EPCAM+/bilary)","MYL12B",2.206287055
+"165","Cholangiocyte (EPCAM+/bilary)","MORF4L2",2.199566313
+"166","Cholangiocyte (EPCAM+/bilary)","RBBP7",2.181818204
+"167","Cholangiocyte (EPCAM+/bilary)","HADHA",2.165843563
+"168","Cholangiocyte (EPCAM+/bilary)","SERPINA5",2.15434318
+"169","Cholangiocyte (EPCAM+/bilary)","VMP1",2.147136988
+"170","Cholangiocyte (EPCAM+/bilary)","IRF6",2.142565452
+"171","Cholangiocyte (EPCAM+/bilary)","SPP1",2.116215837
+"172","Cholangiocyte (EPCAM+/bilary)","PLPP2",2.114033322
+"173","Cholangiocyte (EPCAM+/bilary)","MYL12A",2.099921517
+"174","Cholangiocyte (EPCAM+/bilary)","LAMP2",2.09885527
+"175","Cholangiocyte (EPCAM+/bilary)","CCL2",2.039112907
+"176","Cholangiocyte (EPCAM+/bilary)","MTCH1",2.033947961
+"177","Cholangiocyte (EPCAM+/bilary)","LGR4",1.969830104
+"178","Cholangiocyte (EPCAM+/bilary)","EGR1",1.840237954
+"179","Cholangiocyte (EPCAM+/bilary)","STAT1",1.828773716
+"180","Cholangiocyte (EPCAM+/bilary)","LAMB1",1.753755134
+"181","Cholangiocyte (EPCAM+/bilary)","FOXA2",1.482441839
+"182","Cholangiocyte (EPCAM+/bilary)","FOS",1.460266312
+"183","Cholangiocyte (EPCAM+/bilary)","JUN",1.446510059
+"184","Cholangiocyte (EPCAM+/bilary)","FOXA1",1.434120051
+"185","Cholangiocyte (EPCAM+/bilary)","FGFR2",1.414774031
+"186","Cholangiocyte (EPCAM+/bilary)","NENF",-3.565051026
+"187","Cholangiocyte (EPCAM+/bilary)","USH1C",-2.714472955
+"188","Cholangiocyte (EPCAM+/bilary)","IQCA1",-2.442030688
+"189","Cholangiocyte (EPCAM+/bilary)","MGLL",-2.432650744
+"190","Cholangiocyte (EPCAM+/bilary)","TOB2",-2.273157133
+"191","Cholangiocyte (EPCAM+/bilary)","KLF6",-2.213479236
+"192","Cholangiocyte (EPCAM+/bilary)","EIF5",-2.072631449
+"193","Endothelial, stellate, and myofibroblast","TM4SF1",4.056724852
+"194","Endothelial, stellate, and myofibroblast","QSOX1",3.776714883
+"195","Endothelial, stellate, and myofibroblast","ISG15",3.508267544
+"196","Endothelial, stellate, and myofibroblast","IGF1",3.225062956
+"197","Endothelial, stellate, and myofibroblast","ACTA2",3.152585608
+"198","Endothelial, stellate, and myofibroblast","ARRDC3",3.143328135
+"199","Endothelial, stellate, and myofibroblast","TPI1",3.132521468
+"200","Endothelial, stellate, and myofibroblast","SNX3",3.006705402
+"201","Endothelial, stellate, and myofibroblast","IFIT3",2.971993201
+"202","Endothelial, stellate, and myofibroblast","PXDC1",2.96089356
+"203","Endothelial, stellate, and myofibroblast","PLK2",2.933760393
+"204","Endothelial, stellate, and myofibroblast","LAMP1",2.930200144
+"205","Endothelial, stellate, and myofibroblast","NID1",2.807085522
+"206","Endothelial, stellate, and myofibroblast","LGMN",2.794386264
+"207","Endothelial, stellate, and myofibroblast","GPX3",2.778546459
+"208","Endothelial, stellate, and myofibroblast","PDIA6",2.762566443
+"209","Endothelial, stellate, and myofibroblast","DPY19L1",2.716396239
+"210","Endothelial, stellate, and myofibroblast","CALU",2.692650045
+"211","Endothelial, stellate, and myofibroblast","A2M",2.67717993
+"212","Endothelial, stellate, and myofibroblast","EMILIN1",2.676605276
+"213","Endothelial, stellate, and myofibroblast","COL3A1",2.597206896
+"214","Endothelial, stellate, and myofibroblast","MMP19",2.587826245
+"215","Endothelial, stellate, and myofibroblast","CXCL9",2.554185866
+"216","Endothelial, stellate, and myofibroblast","IGFBP7",2.494518212
+"217","Endothelial, stellate, and myofibroblast","TNFRSF1A",2.480151199
+"218","Endothelial, stellate, and myofibroblast","SERPINF1",2.473911276
+"219","Endothelial, stellate, and myofibroblast","FN1",2.465680855
+"220","Endothelial, stellate, and myofibroblast","RAB7A",2.444538145
+"221","Endothelial, stellate, and myofibroblast","MX1",2.419772558
+"222","Endothelial, stellate, and myofibroblast","CD81",2.419600574
+"223","Endothelial, stellate, and myofibroblast","TAGLN2",2.403817872
+"224","Endothelial, stellate, and myofibroblast","SHISA5",2.342915219
+"225","Endothelial, stellate, and myofibroblast","PLVAP",2.243333566
+"226","Endothelial, stellate, and myofibroblast","MYL12B",2.206287055
+"227","Endothelial, stellate, and myofibroblast","COL6A2",2.20530536
+"228","Endothelial, stellate, and myofibroblast","MORF4L2",2.199566313
+"229","Endothelial, stellate, and myofibroblast","IGF2",2.199031388
+"230","Endothelial, stellate, and myofibroblast","POSTN",2.17170479
+"231","Endothelial, stellate, and myofibroblast","CSAD",2.154481131
+"232","Endothelial, stellate, and myofibroblast","C1S",2.149826815
+"233","Endothelial, stellate, and myofibroblast","MAN1C1",2.143991605
+"234","Endothelial, stellate, and myofibroblast","AGTR1",2.138380417
+"235","Endothelial, stellate, and myofibroblast","EMC10",2.119100641
+"236","Endothelial, stellate, and myofibroblast","MYL12A",2.099921517
+"237","Endothelial, stellate, and myofibroblast","LIMS2",2.09852966
+"238","Endothelial, stellate, and myofibroblast","CRTAP",2.080353325
+"239","Endothelial, stellate, and myofibroblast","SRSF4",2.053561043
+"240","Endothelial, stellate, and myofibroblast","CCL2",2.039112907
+"241","Endothelial, stellate, and myofibroblast","IFRD1",2.03294592
+"242","Endothelial, stellate, and myofibroblast","CEBPB",1.973590766
+"243","Endothelial, stellate, and myofibroblast","SERHL2",-4.062624872
+"244","Endothelial, stellate, and myofibroblast","IGFBP5",-3.23720307
+"245","Endothelial, stellate, and myofibroblast","ARL13B",-2.459875619
+"246","Endothelial, stellate, and myofibroblast","MGLL",-2.432650744
+"247","Endothelial, stellate, and myofibroblast","TOB2",-2.273157133
+"248","Endothelial, stellate, and myofibroblast","ANO6",-2.225367102
+"249","Endothelial, stellate, and myofibroblast","KLF6",-2.213479236
+"250","Endothelial, stellate, and myofibroblast","BMP4",-1.616976288
+"251","Endothelial, stellate, and myofibroblast","RSPO3",-1.53087135
+"252","NK, NKT and T-cells","CCL5",3.787802054
+"253","NK, NKT and T-cells","MTFP1",3.673792402
+"254","NK, NKT and T-cells","GSTK1",3.22830796
+"255","NK, NKT and T-cells","TNFSF14",2.837738164
+"256","NK, NKT and T-cells","TMEM243",2.753516488
+"257","NK, NKT and T-cells","SUN2",2.669676407
+"258","NK, NKT and T-cells","ERP29",2.637490264
+"259","NK, NKT and T-cells","CHCHD2",2.611856767
+"260","NK, NKT and T-cells","KLRK1",2.452194693
+"261","NK, NKT and T-cells","HEXIM1",2.434633907
+"262","NK, NKT and T-cells","MBNL1",2.370860698
+"263","NK, NKT and T-cells","UFC1",2.347706763
+"264","NK, NKT and T-cells","SHISA5",2.342915219
+"265","NK, NKT and T-cells","UBE2L6",2.308473314
+"266","NK, NKT and T-cells","HNRNPK",2.294941159
+"267","NK, NKT and T-cells","FCER1G",2.276907103
+"268","NK, NKT and T-cells","HNRNPH3",2.217935413
+"269","NK, NKT and T-cells","ABRACL",2.214688247
+"270","NK, NKT and T-cells","YARS",2.2019137
+"271","NK, NKT and T-cells","OST4",2.164031722
+"272","NK, NKT and T-cells","SRSF7",2.123467597
+"273","NK, NKT and T-cells","C14orf119",2.121015316
+"274","NK, NKT and T-cells","MYL12A",2.099921517
+"275","NK, NKT and T-cells","PRPF8",2.055761457
+"276","NK, NKT and T-cells","IL18R1",2.045107454
+"277","NK, NKT and T-cells","TRIM14",2.012155566
+"278","NK, NKT and T-cells","STAT1",1.828773716
+"279","NK, NKT and T-cells","CD3E",1.767971509
+"280","NK, NKT and T-cells","SIRT2",1.708907693
+"281","NK, NKT and T-cells","CXCR4",1.583771756
+"282","NK, NKT and T-cells","IRF8",1.531710349
+"283","NK, NKT and T-cells","JUNB",1.506485381
+"284","NK, NKT and T-cells","FOS",1.460266312
+"285","NK, NKT and T-cells","CD2",1.423465761
+"286","NK, NKT and T-cells","IL7R",1.422202301
+"287","NK, NKT and T-cells","CD8A",1.401736295
+"288","NK, NKT and T-cells","CD44",1.371223193
+"289","NK, NKT and T-cells","CD247",1.359906471
+"290","NK, NKT and T-cells","TGFBR2",1.336305934
+"291","NK, NKT and T-cells","CD37",1.19384749
+"292","NK, NKT and T-cells","CD244",1.173103151
+"293","NK, NKT and T-cells","IRF1",1.126711152
+"294","NK, NKT and T-cells","CD96",1.047819818
+"295","NK, NKT and T-cells","FYN",0.956991487
+"296","NK, NKT and T-cells","SOCS1",0.954162806
+"297","NK, NKT and T-cells","CD27",0.948357737
+"298","NK, NKT and T-cells","FAM177A1",-2.082623095
+"299","NK, NKT and T-cells","GPCPD1",-2.046164042
+"300","NK, NKT and T-cells","PHF20",-1.911943571
+"301","NK, NKT and T-cells","DDX24",-1.777770096
+"302","NK, NKT and T-cells","TNRC6C",-1.775747804
+"303","NK, NKT and T-cells","KDM5A",-1.553982612
+"304","NK, NKT and T-cells","CHD2",-1.314825085
+"305","NK, NKT and T-cells","ARID5B",-1.307785222
+"306","NK, NKT and T-cells","MED1",-1.290708585
+"307","NK, NKT and T-cells","CHD7",-1.241224528
+"308","NK, NKT and T-cells","CCL5",3.787802054
+"309","NK, NKT and T-cells","MTFP1",3.673792402
+"310","NK, NKT and T-cells","GSTK1",3.22830796
+"311","NK, NKT and T-cells","TNFSF14",2.837738164
+"312","NK, NKT and T-cells","TMEM243",2.753516488
+"313","NK, NKT and T-cells","SUN2",2.669676407
+"314","NK, NKT and T-cells","ERP29",2.637490264
+"315","NK, NKT and T-cells","CHCHD2",2.611856767
+"316","NK, NKT and T-cells","KLRK1",2.452194693
+"317","NK, NKT and T-cells","HEXIM1",2.434633907
+"318","NK, NKT and T-cells","MBNL1",2.370860698
+"319","NK, NKT and T-cells","UFC1",2.347706763
+"320","NK, NKT and T-cells","SHISA5",2.342915219
+"321","NK, NKT and T-cells","UBE2L6",2.308473314
+"322","NK, NKT and T-cells","HNRNPK",2.294941159
+"323","NK, NKT and T-cells","FCER1G",2.276907103
+"324","NK, NKT and T-cells","HNRNPH3",2.217935413
+"325","NK, NKT and T-cells","ABRACL",2.214688247
+"326","NK, NKT and T-cells","YARS",2.2019137
+"327","NK, NKT and T-cells","OST4",2.164031722
+"328","NK, NKT and T-cells","SRSF7",2.123467597
+"329","NK, NKT and T-cells","C14orf119",2.121015316
+"330","NK, NKT and T-cells","MYL12A",2.099921517
+"331","NK, NKT and T-cells","PRPF8",2.055761457
+"332","NK, NKT and T-cells","IL18R1",2.045107454
+"333","NK, NKT and T-cells","TRIM14",2.012155566
+"334","NK, NKT and T-cells","STAT1",1.828773716
+"335","NK, NKT and T-cells","CD3E",1.767971509
+"336","NK, NKT and T-cells","SIRT2",1.708907693
+"337","NK, NKT and T-cells","CXCR4",1.583771756
+"338","NK, NKT and T-cells","IRF8",1.531710349
+"339","NK, NKT and T-cells","JUNB",1.506485381
+"340","NK, NKT and T-cells","FOS",1.460266312
+"341","NK, NKT and T-cells","CD2",1.423465761
+"342","NK, NKT and T-cells","IL7R",1.422202301
+"343","NK, NKT and T-cells","CD8A",1.401736295
+"344","NK, NKT and T-cells","CD44",1.371223193
+"345","NK, NKT and T-cells","CD247",1.359906471
+"346","NK, NKT and T-cells","TGFBR2",1.336305934
+"347","NK, NKT and T-cells","CD37",1.19384749
+"348","NK, NKT and T-cells","CD244",1.173103151
+"349","NK, NKT and T-cells","IRF1",1.126711152
+"350","NK, NKT and T-cells","CD96",1.047819818
+"351","NK, NKT and T-cells","FYN",0.956991487
+"352","NK, NKT and T-cells","SOCS1",0.954162806
+"353","NK, NKT and T-cells","CD27",0.948357737
+"354","NK, NKT and T-cells","FAM177A1",-2.082623095
+"355","NK, NKT and T-cells","GPCPD1",-2.046164042
+"356","NK, NKT and T-cells","PHF20",-1.911943571
+"357","NK, NKT and T-cells","DDX24",-1.777770096
+"358","NK, NKT and T-cells","TNRC6C",-1.775747804
+"359","NK, NKT and T-cells","KDM5A",-1.553982612
+"360","NK, NKT and T-cells","CHD2",-1.314825085
+"361","NK, NKT and T-cells","ARID5B",-1.307785222
+"362","NK, NKT and T-cells","MED1",-1.290708585
+"363","NK, NKT and T-cells","CHD7",-1.241224528
