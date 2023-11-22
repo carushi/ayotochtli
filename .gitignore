@@ -50,3 +50,5 @@ rsconnect/
 
 .DS_Store
 .ipynb_checkpoints
+
+data/Hess_2022/figure

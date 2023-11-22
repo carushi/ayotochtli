@@ -250,115 +250,119 @@
 "249","Endothelial, stellate, and myofibroblast","KLF6",-2.213479236
 "250","Endothelial, stellate, and myofibroblast","BMP4",-1.616976288
 "251","Endothelial, stellate, and myofibroblast","RSPO3",-1.53087135
-"252","NK, NKT and T-cells","CCL5",3.787802054
-"253","NK, NKT and T-cells","MTFP1",3.673792402
-"254","NK, NKT and T-cells","GSTK1",3.22830796
-"255","NK, NKT and T-cells","TNFSF14",2.837738164
-"256","NK, NKT and T-cells","TMEM243",2.753516488
-"257","NK, NKT and T-cells","SUN2",2.669676407
-"258","NK, NKT and T-cells","ERP29",2.637490264
-"259","NK, NKT and T-cells","CHCHD2",2.611856767
-"260","NK, NKT and T-cells","KLRK1",2.452194693
-"261","NK, NKT and T-cells","HEXIM1",2.434633907
-"262","NK, NKT and T-cells","MBNL1",2.370860698
-"263","NK, NKT and T-cells","UFC1",2.347706763
-"264","NK, NKT and T-cells","SHISA5",2.342915219
-"265","NK, NKT and T-cells","UBE2L6",2.308473314
-"266","NK, NKT and T-cells","HNRNPK",2.294941159
-"267","NK, NKT and T-cells","FCER1G",2.276907103
-"268","NK, NKT and T-cells","HNRNPH3",2.217935413
-"269","NK, NKT and T-cells","ABRACL",2.214688247
-"270","NK, NKT and T-cells","YARS",2.2019137
-"271","NK, NKT and T-cells","OST4",2.164031722
-"272","NK, NKT and T-cells","SRSF7",2.123467597
-"273","NK, NKT and T-cells","C14orf119",2.121015316
-"274","NK, NKT and T-cells","MYL12A",2.099921517
-"275","NK, NKT and T-cells","PRPF8",2.055761457
-"276","NK, NKT and T-cells","IL18R1",2.045107454
-"277","NK, NKT and T-cells","TRIM14",2.012155566
-"278","NK, NKT and T-cells","STAT1",1.828773716
-"279","NK, NKT and T-cells","CD3E",1.767971509
-"280","NK, NKT and T-cells","SIRT2",1.708907693
-"281","NK, NKT and T-cells","CXCR4",1.583771756
-"282","NK, NKT and T-cells","IRF8",1.531710349
-"283","NK, NKT and T-cells","JUNB",1.506485381
-"284","NK, NKT and T-cells","FOS",1.460266312
-"285","NK, NKT and T-cells","CD2",1.423465761
-"286","NK, NKT and T-cells","IL7R",1.422202301
-"287","NK, NKT and T-cells","CD8A",1.401736295
-"288","NK, NKT and T-cells","CD44",1.371223193
-"289","NK, NKT and T-cells","CD247",1.359906471
-"290","NK, NKT and T-cells","TGFBR2",1.336305934
-"291","NK, NKT and T-cells","CD37",1.19384749
-"292","NK, NKT and T-cells","CD244",1.173103151
-"293","NK, NKT and T-cells","IRF1",1.126711152
-"294","NK, NKT and T-cells","CD96",1.047819818
-"295","NK, NKT and T-cells","FYN",0.956991487
-"296","NK, NKT and T-cells","SOCS1",0.954162806
-"297","NK, NKT and T-cells","CD27",0.948357737
-"298","NK, NKT and T-cells","FAM177A1",-2.082623095
-"299","NK, NKT and T-cells","GPCPD1",-2.046164042
-"300","NK, NKT and T-cells","PHF20",-1.911943571
-"301","NK, NKT and T-cells","DDX24",-1.777770096
-"302","NK, NKT and T-cells","TNRC6C",-1.775747804
-"303","NK, NKT and T-cells","KDM5A",-1.553982612
-"304","NK, NKT and T-cells","CHD2",-1.314825085
-"305","NK, NKT and T-cells","ARID5B",-1.307785222
-"306","NK, NKT and T-cells","MED1",-1.290708585
-"307","NK, NKT and T-cells","CHD7",-1.241224528
-"308","NK, NKT and T-cells","CCL5",3.787802054
-"309","NK, NKT and T-cells","MTFP1",3.673792402
-"310","NK, NKT and T-cells","GSTK1",3.22830796
-"311","NK, NKT and T-cells","TNFSF14",2.837738164
-"312","NK, NKT and T-cells","TMEM243",2.753516488
-"313","NK, NKT and T-cells","SUN2",2.669676407
-"314","NK, NKT and T-cells","ERP29",2.637490264
-"315","NK, NKT and T-cells","CHCHD2",2.611856767
-"316","NK, NKT and T-cells","KLRK1",2.452194693
-"317","NK, NKT and T-cells","HEXIM1",2.434633907
-"318","NK, NKT and T-cells","MBNL1",2.370860698
-"319","NK, NKT and T-cells","UFC1",2.347706763
-"320","NK, NKT and T-cells","SHISA5",2.342915219
-"321","NK, NKT and T-cells","UBE2L6",2.308473314
-"322","NK, NKT and T-cells","HNRNPK",2.294941159
-"323","NK, NKT and T-cells","FCER1G",2.276907103
-"324","NK, NKT and T-cells","HNRNPH3",2.217935413
-"325","NK, NKT and T-cells","ABRACL",2.214688247
-"326","NK, NKT and T-cells","YARS",2.2019137
-"327","NK, NKT and T-cells","OST4",2.164031722
-"328","NK, NKT and T-cells","SRSF7",2.123467597
-"329","NK, NKT and T-cells","C14orf119",2.121015316
-"330","NK, NKT and T-cells","MYL12A",2.099921517
-"331","NK, NKT and T-cells","PRPF8",2.055761457
-"332","NK, NKT and T-cells","IL18R1",2.045107454
-"333","NK, NKT and T-cells","TRIM14",2.012155566
-"334","NK, NKT and T-cells","STAT1",1.828773716
-"335","NK, NKT and T-cells","CD3E",1.767971509
-"336","NK, NKT and T-cells","SIRT2",1.708907693
-"337","NK, NKT and T-cells","CXCR4",1.583771756
-"338","NK, NKT and T-cells","IRF8",1.531710349
-"339","NK, NKT and T-cells","JUNB",1.506485381
-"340","NK, NKT and T-cells","FOS",1.460266312
-"341","NK, NKT and T-cells","CD2",1.423465761
-"342","NK, NKT and T-cells","IL7R",1.422202301
-"343","NK, NKT and T-cells","CD8A",1.401736295
-"344","NK, NKT and T-cells","CD44",1.371223193
-"345","NK, NKT and T-cells","CD247",1.359906471
-"346","NK, NKT and T-cells","TGFBR2",1.336305934
-"347","NK, NKT and T-cells","CD37",1.19384749
-"348","NK, NKT and T-cells","CD244",1.173103151
-"349","NK, NKT and T-cells","IRF1",1.126711152
-"350","NK, NKT and T-cells","CD96",1.047819818
-"351","NK, NKT and T-cells","FYN",0.956991487
-"352","NK, NKT and T-cells","SOCS1",0.954162806
-"353","NK, NKT and T-cells","CD27",0.948357737
-"354","NK, NKT and T-cells","FAM177A1",-2.082623095
-"355","NK, NKT and T-cells","GPCPD1",-2.046164042
-"356","NK, NKT and T-cells","PHF20",-1.911943571
-"357","NK, NKT and T-cells","DDX24",-1.777770096
-"358","NK, NKT and T-cells","TNRC6C",-1.775747804
-"359","NK, NKT and T-cells","KDM5A",-1.553982612
-"360","NK, NKT and T-cells","CHD2",-1.314825085
-"361","NK, NKT and T-cells","ARID5B",-1.307785222
-"362","NK, NKT and T-cells","MED1",-1.290708585
-"363","NK, NKT and T-cells","CHD7",-1.241224528
+"252","Kupffer","CST3",3.470104663
+"253","Kupffer","SNX3",3.006705402
+"254","Kupffer","IFIT3",2.971993201
+"255","Kupffer","LAMP1",2.930200144
+"256","Kupffer","CXCL10",2.859727939
+"257","Kupffer","TNFSF14",2.837738164
+"258","Kupffer","GPNMB",2.811180174
+"259","Kupffer","LGMN",2.794386264
+"260","Kupffer","CTSH",2.774350841
+"261","Kupffer","STK19",2.772162143
+"262","Kupffer","PLIN5",2.70457442
+"263","Kupffer","PLA2G7",2.6356958
+"264","Kupffer","MMP19",2.587826245
+"265","Kupffer","CXCL9",2.554185866
+"266","Kupffer","RAB7A",2.444538145
+"267","Kupffer","MST1",2.423308056
+"268","Kupffer","MX1",2.419772558
+"269","Kupffer","CD81",2.419600574
+"270","Kupffer","NCOA4",2.416765585
+"271","Kupffer","TAGLN2",2.403817872
+"272","Kupffer","LGALS3",2.337176889
+"273","Kupffer","MPEG1",2.335054583
+"274","Kupffer","IL13RA1",2.327993754
+"275","Kupffer","UBE2L6",2.308473314
+"276","Kupffer","FCER1G",2.276907103
+"277","Kupffer","VMP1",2.147136988
+"278","Kupffer","SRSF7",2.123467597
+"279","Kupffer","EMC10",2.119100641
+"280","Kupffer","SPP1",2.116215837
+"281","Kupffer","CRTAP",2.080353325
+"282","Kupffer","HLA-DPA1",2.056344504
+"283","Kupffer","CHRD",2.020201735
+"284","Kupffer","TRIM14",2.012155566
+"285","Kupffer","CEBPB",1.973590766
+"286","Kupffer","MTHFR",1.922283539
+"287","Kupffer","ARF6",1.910161586
+"288","Kupffer","CTSS",1.835298717
+"289","Kupffer","STAT1",1.828773716
+"290","Kupffer","MNDA",1.781604818
+"291","Kupffer","RGS1",1.617185163
+"292","Kupffer","CXCR4",1.583771756
+"293","Kupffer","IFI44L",1.547547137
+"294","Kupffer","IRF8",1.531710349
+"295","Kupffer","VCAM1",1.512874364
+"296","Kupffer","JUNB",1.506485381
+"297","Kupffer","IRF2",1.49649201
+"298","Kupffer","FOS",1.460266312
+"299","Kupffer","CD5L",1.371573191
+"300","Kupffer","CD44",1.371223193
+"301","Kupffer","CD163",1.353103652
+"302","Kupffer","IRF7",1.195294155
+"303","Kupffer","CSF1R",1.485936297
+"304","Kupffer","STAT3",1.138285065
+"305","Kupffer","KLF6",-2.213479236
+"306","Kupffer","FST",-2.086784342
+"307","Kupffer","ZRSR2",-1.774591394
+"308","Kupffer","TCF7L2",-1.665766584
+"309","Kupffer","ATP2B1",-1.642781193
+"310","Kupffer","KMT2E",-1.567419942
+"311","Kupffer","CXCL12",-1.160107186
+"312","NK, NKT and T-cells","CCL5",3.787802054
+"313","NK, NKT and T-cells","MTFP1",3.673792402
+"314","NK, NKT and T-cells","GSTK1",3.22830796
+"315","NK, NKT and T-cells","TNFSF14",2.837738164
+"316","NK, NKT and T-cells","TMEM243",2.753516488
+"317","NK, NKT and T-cells","SUN2",2.669676407
+"318","NK, NKT and T-cells","ERP29",2.637490264
+"319","NK, NKT and T-cells","CHCHD2",2.611856767
+"320","NK, NKT and T-cells","KLRK1",2.452194693
+"321","NK, NKT and T-cells","HEXIM1",2.434633907
+"322","NK, NKT and T-cells","MBNL1",2.370860698
+"323","NK, NKT and T-cells","UFC1",2.347706763
+"324","NK, NKT and T-cells","SHISA5",2.342915219
+"325","NK, NKT and T-cells","UBE2L6",2.308473314
+"326","NK, NKT and T-cells","HNRNPK",2.294941159
+"327","NK, NKT and T-cells","FCER1G",2.276907103
+"328","NK, NKT and T-cells","HNRNPH3",2.217935413
+"329","NK, NKT and T-cells","ABRACL",2.214688247
+"330","NK, NKT and T-cells","YARS",2.2019137
+"331","NK, NKT and T-cells","OST4",2.164031722
+"332","NK, NKT and T-cells","SRSF7",2.123467597
+"333","NK, NKT and T-cells","C14orf119",2.121015316
+"334","NK, NKT and T-cells","MYL12A",2.099921517
+"335","NK, NKT and T-cells","PRPF8",2.055761457
+"336","NK, NKT and T-cells","IL18R1",2.045107454
+"337","NK, NKT and T-cells","TRIM14",2.012155566
+"338","NK, NKT and T-cells","STAT1",1.828773716
+"339","NK, NKT and T-cells","CD3E",1.767971509
+"340","NK, NKT and T-cells","SIRT2",1.708907693
+"341","NK, NKT and T-cells","CXCR4",1.583771756
+"342","NK, NKT and T-cells","IRF8",1.531710349
+"343","NK, NKT and T-cells","JUNB",1.506485381
+"344","NK, NKT and T-cells","FOS",1.460266312
+"345","NK, NKT and T-cells","CD2",1.423465761
+"346","NK, NKT and T-cells","IL7R",1.422202301
+"347","NK, NKT and T-cells","CD8A",1.401736295
+"348","NK, NKT and T-cells","CD44",1.371223193
+"349","NK, NKT and T-cells","CD247",1.359906471
+"350","NK, NKT and T-cells","TGFBR2",1.336305934
+"351","NK, NKT and T-cells","CD37",1.19384749
+"352","NK, NKT and T-cells","CD244",1.173103151
+"353","NK, NKT and T-cells","IRF1",1.126711152
+"354","NK, NKT and T-cells","CD96",1.047819818
+"355","NK, NKT and T-cells","FYN",0.956991487
+"356","NK, NKT and T-cells","SOCS1",0.954162806
+"357","NK, NKT and T-cells","CD27",0.948357737
+"358","NK, NKT and T-cells","FAM177A1",-2.082623095
+"359","NK, NKT and T-cells","GPCPD1",-2.046164042
+"360","NK, NKT and T-cells","PHF20",-1.911943571
+"361","NK, NKT and T-cells","DDX24",-1.777770096
+"362","NK, NKT and T-cells","TNRC6C",-1.775747804
+"363","NK, NKT and T-cells","KDM5A",-1.553982612
+"364","NK, NKT and T-cells","CHD2",-1.314825085
+"365","NK, NKT and T-cells","ARID5B",-1.307785222
+"366","NK, NKT and T-cells","MED1",-1.290708585
+"367","NK, NKT and T-cells","CHD7",-1.241224528
