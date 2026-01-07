@@ -1,11 +1,15 @@
 # Single-cell RNA-seq and ATAC-seq analysis for nine-banded armadillo quadruplets
 
 
-## Reference
+## Dependency
+* SnapATAC - scATAC-seq analysis
+* Scanpy - scRNA-seq analysis
+* Seurat - Integrative analysis
 
+## References
 ### Preprint 
 
-* Risa K Kawaguchi†, Sara Ballouz†, Maria T. Pena, Frank M. Knight, Linda B. Adams, Jesse A. Gillis\*. (Coming soon)
+* Risa K Kawaguchi†, Sara Ballouz†, Maria T. Pena, Leon French, Frank M. Knight, Linda B. Adams, Jesse A. Gillis\*. (Coming soon)
   * † Equally contributed. \* Corresponding.
 
 ### Related project where bulk transcriptome data was obtained for allele-specific expression analysis
