@@ -9,8 +9,13 @@
 - [Simulations](simulations.md)
 
 ### Bulk expression analysis
-- [Human comparisons](human_notebook.md)
+- [Armadillo - human comparisons](human_notebook.md)
 - [Gene-expression analysis](gene_expression_notebook.md)
+
+### Validation 
+
+* [DEG comparison with Hess 2022](DEG_comparison.ipynb)
+* [Phenotype visualization](Phenotype_evaluation.ipynb)
 
 ## Single-cell analysis
 

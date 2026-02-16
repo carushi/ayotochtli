@@ -9,6 +9,7 @@ Note, these should be available soon - apologies if links are still not working.
 - Project here: [PRJNA595587](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA595587)
 - DNA: [PRJNA591897](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA591897)
 - RNA: [PRJNA595370](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA595370) [SRP237365](https://www.ncbi.nlm.nih.gov/sra/?term=SRP237365) [GSE141951](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141951)
+- Virus: [AL450380](https://www.ncbi.nlm.nih.gov/nuccore/AL450380)
 
 
 # Reference genomes  
@@ -17,6 +18,9 @@ Create genome file with spike-ins
 ```
 cat dasNov3.fa spike.fa > dasNov3_spike.fa 
 ```
+
+```
+
 
 ```
 ~/STAR/STAR_2.7  \
@@ -38,6 +42,8 @@ cat dasNov3.fa spike.fa > dasNov3_spike.fa
 --outSAMtype BAM Unsorted \
 --quantMode GeneCounts 
 ```
+
+## Run STAR with 
 
 
 ## Ignoring spike-ins
