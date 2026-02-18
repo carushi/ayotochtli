@@ -1,0 +1,5 @@
+# cytokins
+TNFA
+IL1B
+IL6R
+IL10
