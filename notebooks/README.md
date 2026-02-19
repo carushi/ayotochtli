@@ -31,23 +31,26 @@
 ## Correspondence table 
 
 | Figure 1 | File |
+|----------|------|
 | B-D      | [Phenotype visualization](Phenotype_evaluation.ipynb) |
 | G-H      | [marker_heatmap_integrated.R](../script/multi_omics/marker_heatmap_integrated.R) |
 | I        | [HVGs cross-quad](gene_expression_notebook.md) | 
     
 | Figure 2 | File |
-| A        | |
-| B        | |
+|----------|------|
+| A-B      |[clustering_consistency.R](../scripts/sc_clustering/clustering_consistency.R) |
 | D-F      | |
 | G-H      | [marker_heatmap_integrated.R](../script/multi_omics/marker_heatmap_integrated.R) |
 
 | Figure 3 | File |
+|----------|------|
 | A-C      | |
 | E        | |
 | F        | |
 | G-I      | |
 
 | Figure 4 | File |
+|----------|------|
 | A        | |
 | B        | |
 | D-F      | |
@@ -56,16 +59,20 @@
 
 
 | Figure 5 | File |
+|----------|------|
 | A-C        | |
 | D-E        | [marker_heatmap_integrated.R](../script/multi_omics/marker_heatmap_integrated.R) |
 
 ## Supplementary Figure
+
+| Figure   | File |
+|----------|------|
 | Figure S1 | Twin |
 | Figure S2 | Perfect predictors |
 | Figure S3 | [DEG comparison with Hess 2022](DEG_comparison.ipynb) |
 | Figure S4 | Average predictability |
 | Figure S5 | [human_notebook.md](human_notebook.md) |
-| Figure S6 | GO |
+| Figure S6 | [human_notebook.md](human_notebook.md) |
 | Figure S7 | GO |
 | Figure S8 | ENCODE |
 | Figure S9 | Rank |
