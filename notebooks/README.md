@@ -38,14 +38,14 @@
     
 | Figure 2 | File |
 |----------|------|
-| A-B      |[clustering_consistency.R](../scripts/sc_clustering/clustering_consistency.R) |
-| D-F      | [gene_expression_notebook.md](gene_expression_notebook.md)
+| A-B      | [clustering_consistency.R](../scripts/sc_clustering/clustering_consistency.R) |
+| D-F      | [gene_expression_notebook.md](gene_expression_notebook.md) |
 | G-H      | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
 
 | Figure 3 | File |
 |----------|------|
-| A-C      | [gene_expression_notebook.md](gene_expression_notebook.md)
-| E-F      | [gene_expression_notebook.md](gene_expression_notebook.md)|
+| A-C      | [gene_expression_notebook.md](gene_expression_notebook.md) |
+| E-F      | [gene_expression_notebook.md](gene_expression_notebook.md) |
 | G-I      | |
 
 | Figure 4 | File |
@@ -53,8 +53,9 @@
 | A        | |
 | B        | |
 | D-F      | |
-| G-I      | |
-| J        | |
+| G
+| H-I      | [celltype_inference.R](../scripts/sc_clustering/celltype_inference.R)|
+| J        | [snap_obj_analysis.R](../scripts/sc_clustering/snap_obj_analysis.R) |
 
 
 | Figure 5 | File |
@@ -76,10 +77,10 @@
 | Figure S8 | ENCODE |
 | Figure S9 | Rank |
 | Figure S10 | [scRNA_scanpy.ipynb](scRNA_scanpy.ipynb)
-| Figure S11 | scATAC-seq |
-| Figure S12 | scATAC-seq2|
+| Figure S11 | [snap_basic_stats.R](../scripts/sc_clustering/snap_basic_stats.R) and bamPEFragmentSize (deeptools)|
+| Figure S12 | [snap_basic_stats.R](../scripts/sc_clustering/snap_basic_stats.R) |
 | Figure S13 | [Phenotype_evaluation.ipynb](Phenotype_evaluation.ipynb) |
-| Figure S14 | HOMER |
+| Figure S14 | [snap_obj_analysis.R](../scripts/sc_clustering/snap_obj_analysis.R) |
 | Figure S15 | Motif activity |
 
 

@@ -6,6 +6,7 @@ output: html_notebook
 
 # Load data
 ```{r}
+source("../scripts/helper.r")
 DIR <<- "../bulk_transcriptome/data/"
 load(paste0(DIR, "cpm_strand_comb.Rdata"))
 load(paste0(DIR, "counts_strand_comb.Rdata"))
@@ -55,13 +56,13 @@ f.zzz = (rowSums(X.cpm.all == 0 )  == 0  )
 sample.cors = cor(X.cpm.all, method ="spearman", use="pair")
 heatmap.3(sample.cors[r_samp,r_samp], 
           col=cols5, 
-          ColSideCol = candy_colors[pData$Quad[r_samp]],
-          RowSideCol = cols15[pData$Sex[r_samp]])
+          ColSideColors = matrix(candy_colors[pData$Quad[r_samp]], ncol=1),
+          RowSideColors = matrix(cols15[pData$Sex[r_samp]], ncol=20))
 
 heatmap.3(sample.cors[r_samp,r_samp], 
           col=cols5, 
-          ColSideCol = candy_colors[pData$Quad[r_samp]],
-          RowSideCol =  (candy_colors)[-(1:3)][pData$Lanes[r_samp]])
+          ColSideColors = matrix(candy_colors[pData$Quad[r_samp]], ncol=1),
+          RowSideColors = matrix(candy_colors[-(1:3)][pData$Lanes[r_samp]], ncol=20))
 ```
 
 # Between siblings
@@ -132,8 +133,8 @@ h1$density = h1$counts/sum(h1$counts)
 ylim= range(c( h1$density, h2$density) )
 xlim= range(c( h1$breaks, h2$breaks) )
 
-plot(h1, freq=F, col=makeTransparent("blue"), border=NA, xlim=xlim, ylim=ylim, xlab="Sample-sample correlations", main="")
-plot(h2, freq=F,add=T, border=NA, col=makeTransparent("purple") )
+plot(h1, freq=F, col=makeTransparent("blue", alpha=0.5), border=NA, xlim=xlim, ylim=ylim, xlab="Sample-sample correlations", main="")
+plot(h2, freq=F,add=T, border=NA, col=makeTransparent("purple", alpha=0.5) )
 abline(v= mean(sim.across.all), lwd=2, col="blue" )
 abline(v= mean(sim.within.all), lwd=2, col="purple" )
 wilcox.test( sim.across.all, sim.within.all )
@@ -235,8 +236,8 @@ abline(v=fdrs.hvgs.q$Pt, lwd=2)
 ```{r} 
 frac = 1 - n_hvgs/ sum(f.zz)
 genesets  =  1*(hvgs[ ,1:n_qt]> frac)
-rownames(genesets ) = attr$ensemblID
-colnames(genesets ) = labels
+rownames(genesets) = attr$ensemblID
+colnames(genesets) = labels
 
 mf_cor = calculate_multifunc(genesets[f.zz,])
 mf_cor.q = lapply(1:n_quads, function(j) calculate_multifunc(genesets[f.zz, -c((1:n_times) + n_times*(j-1))]))
@@ -284,9 +285,9 @@ for(j in 1:n_quads) {
 time = sort(rep(1:n_times, n_samp) )[pData$Quad == j]
 indv = pData$Ind[pData$Quad == j]
 
-# anovaresults <- apply(X.cpm.all[,pData$Quad == j], 1, aof, indv, time)
- 
-load(file=paste0("anova.quad",j,".Rdata")) 
+anovaresults <- apply(X.cpm.all[,pData$Quad == j], 1, aof, indv, time)
+
+#load(file=paste0("anova.quad",j,".Rdata")) 
 temp.1 <- unlist(lapply(anovaresults, function(x) { x["Pr(>F)"][1,] }))
 temp.2 <- matrix(temp.1, length(anovaresults),1, byrow=T)
 dimnames(temp.2) <- list(names(anovaresults), dimnames(anovaresults[[1]])[[1]][1])
@@ -302,7 +303,7 @@ hist(  (pvalues[f.zz,1]),  main="ANOVA p-values" ,xlab=" p-value" , col=candy_co
 hist( (p.adjust(pvalues[f.zz,1]) ), main="ANOVA q-values", xlab="  q-value"  , col=candy_colors[j], border=NA) 
 
 
-# save(anovaresults, pvalues, file=paste0("anova.quad",j,".Rdata")) 
+save(anovaresults, pvalues, file=paste0("anova.quad",j,".Rdata")) 
 
 }
 ```
@@ -321,7 +322,7 @@ for(j in 1:n_quads){
  
  heatmap.3( log2(1+quad.hi.pdata[,pData$Quad==j] ), 
             col=plasma(100),    
-            ColSideCol=tropical_colors[pData$Ind[pData$Quad==j]],
+            ColSideColors=tropical_colors[pData$Ind[pData$Quad==j]],
             main=quads[j])
 
 
@@ -338,7 +339,7 @@ beeswarm( t( log2(1+quad.hi.pdata[,pData$Quad==j]))  ~ as.character(pData$ID[pDa
 
 heatmap.3( (quad.hi.pzsco[,pData$Quad==j] ), 
            col=plasma(100), 
-           ColSideCol=tropical_colors[pData$Ind[pData$Quad==j]])
+           ColSideColors=tropical_colors[pData$Ind[pData$Quad==j]])
 
 beeswarm( t( (quad.hi.pzsco[,pData$Quad==j]))  ~ as.character(pData$ID[pData$Quad==j] ), 
           col=tropical_colors[sort(as.numeric(pData$altID[pData$Quad==j] ))-nnj], 
@@ -514,70 +515,16 @@ bc.pval = matrix(pval.csum[match(bc, pval.csum[,1]),2], nrow=3)
 ab.pval = matrix(pval.rsum[match(ab, pval.rsum[,1]),2], nrow=5)
 cd.pval = pval.sum[match(cd, pval.sum[,1]),2]
 
-#filename = "task1_results_corr_ref.strand.Rdata"; dataset = "ref.stranded"
+filename = "task1_results_corr_ref.strand.Rdata"; dataset = "ref.stranded"
 
-#save(
-#  pred.scores.list,
-#  pval.scores.list,
-#  pred.indscores.list,
-#  setsizes.scores.list, 
-#  genesets.scores.list,nr, nr2, 
-#  cd,ab,de,bc, cd.pval,ab.pval,de.pval,bc.pval, 
-#  file=filename)
-xlab="Correlations"
-plot( (nr2), cd, pch=19, ylim=c(0,4), main="Gene set aggregate score averaged", ylab="Score", xlab=xlab, sub=dataset)
-abline(h=1, lty=2, col=2)
-abline(h=1.5, lty=2, col=4)
-
-
-
-### Averaged by timepoint  
-plot( (nr2), ab[1,], pch=19, ylim=c(0,4), col=0, main="Gene set score (averaged across timepoints)", xlab=xlab, ylab="Score")
-sapply(1:5, function(i) lines( (nr2), ab[i,], pch=19, col=makeTransparent(original_colors[i],150) ) )
-sapply(1:5, function(i) points( (nr2), ab[i,], pch=19, col=makeTransparent(original_colors[i],150) ) )
-abline(h=pval.rsum[which(pval.rsum[,2] < .05)[1],1], lty=2, col=4)
-legend("topleft", col=original_colors, lwd=2, pch=19, leg=quads)
-
-plot( (nr2), -log10(ab.pval[1,]), pch=19, ylim=c(0,2.5), col=0, main="Gene set score (averaged across timepoints)", xlab=xlab, ylab="-log10 p-val")
-sapply(1:5, function(i) lines( (nr2), -log10(ab.pval[i,]), pch=19, col=makeTransparent(original_colors[i],150) ) )
-sapply(1:5, function(i) points( (nr2), -log10(ab.pval[i,]), pch=19, col=makeTransparent(original_colors[i],150) ) )
-abline(h=-log10(0.05), lty=2, col=4)
-legend("top", col=original_colors, lwd=2, pch=19, leg=quads)
-
-
-####  Averaged by quad 
-plot( (nr2), bc[1,], pch=19, ylim=c(0,4), col=0, main="Gene set aggregate score (averaged by quad)", ylab="Score", xlab=xlab)
-sapply(1:3, function(i) points( (nr2), bc[i,], pch=19, col=makeTransparent(mm_colors[i],150) ) )
-sapply(1:3, function(i) lines( (nr2), bc[i,], pch=19, col=makeTransparent(mm_colors[i],150) ) )
-abline(h=pval.csum[which(pval.csum[,2] < .05)[1],1], lty=2, col=4)
-legend("topright", col=mm_colors, lwd=2, pch=19, leg=tlab)
-
-plot( (nr2), -log10(bc.pval[1,]), pch=19, ylim=c(0,2.5), col=0, main="Gene set aggregate score (averaged by quad)", ylab="-log10 pval", xlab=xlab)
-sapply(1:3, function(i) points( (nr2), -log10(bc.pval[i,]), pch=19, col=makeTransparent(mm_colors[i],150) ) )
-sapply(1:3, function(i) lines( (nr2), -log10(bc.pval[i,]), pch=19, col=makeTransparent(mm_colors[i],150) ) )
-abline(h=-log10(0.05), lty=2, col=4)
-legend("topleft", col=mm_colors, lwd=2, pch=19, leg=tlab)
-
-
-### Averaged all 
-plot( (nr2), cd, pch=19, ylim=c(0,4), main="Gene set aggregate score averaged", ylab="Score", xlab=xlab)
-abline(h=pval.sum[which(pval.sum[,2] < .054)[1],1], lty=2, col=4)
-
-plot( (nr2), -log10(cd.pval), pch=19, ylim=c(0,2.5), main="Gene set aggregate score averaged", ylab="-log10 pval", xlab=xlab) 
-abline(h=-log10(0.05), lty=2, col=4)
-
-### individual 
-plot( (nr2), -log10(de.pval[1,]), pch=19, ylim=c(0,2.5), col=0, main="Gene set aggregate score", ylab="-log10 pval", xlab=xlab)
-sapply(1:15, function(i) points( jitter(nr2), -log10(de.pval[i,]), pch=14+ceiling(i/5), col=makeTransparent(original_colors[((i-1) %%5)+1],150) ) )
-sapply(1:15, function(i) lines( (nr2), -log10(de.pval[i,]), col=makeTransparent(original_colors[((i-1) %%5)+1],150) ) )
-abline(h=-log10(0.05), lty=2, col=4)
-legend("topleft", col=original_colors, lwd=2, pch=19, leg=quads)
-legend("top", col=1, lwd=2, pch=19:21, leg=tlab)
-
-plot( (nr2), (de[1,]), pch=19,ylim=c(0,4), col=0, main="Gene set aggregate score", ylab="Score", xlab=xlab)
-sapply(1:15, function(i) points( (nr2), (de[i,]), pch=14+ceiling(i/5), col=makeTransparent(original_colors[((i-1) %%5)+1],150) ) )
-sapply(1:15, function(i) lines( (nr2), (de[i,]), col=makeTransparent(original_colors[((i-1) %%5)+1],150) ) )
-
+save(
+  pred.scores.list,
+  pval.scores.list,
+  pred.indscores.list,
+  setsizes.scores.list, 
+  genesets.scores.list,nr, nr2, 
+  cd,ab,de,bc, cd.pval,ab.pval,de.pval,bc.pval, 
+  file=filename)
 
 k = 20
 barplot(colMeans(pred.scores.list[[k]]), col=mm_colors); abline(h=1, col=4, lty=2)
@@ -587,8 +534,8 @@ heatmap.3(pred.scores.list[[k]],
           Rowv=F, 
           Colv=F, 
           col=magma(5), 
-          ColSideCol=mm_colors[1:3], 
-          RowSideCol=candy_colors[1:5], 
+          ColSideColors=mm_colors[1:3], 
+          RowSideColors=candy_colors[1:5], 
           labRow=quads, 
           labCol=tlab)
 
