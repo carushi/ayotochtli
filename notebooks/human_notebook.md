@@ -118,11 +118,11 @@ abline(v=mean(BBh,na.rm=T))
  
 # Human fold changes
 ```{r}
-setwd("U:/XSKEW/TwinsUK/EGAD00001001088/")
+# quantify RNA expression for TwinsUK data https://www.omicsdi.org/dataset/ega/EGAD00001001088
 load("countsQC.Rdata")
 load("cpm.QC.Rdata")
 
-load("Y:/genome/gene_annotations_v19.Rdata")
+load("../data/genome/gene_annotations_v19.Rdata")
 attr.human = attr
 samples.cor = cor(counts, m="s")
 
@@ -143,7 +143,7 @@ plot( dens.list[[110]], type="l", lwd=2, col=makeTransparent(1))
 tmp = sapply(bad, function(i) lines(dens.list[[i]], col=makeTransparent(2), lwd=2) )
 
 
-load("U:/armadillo/updated/gene_annotations_v0.95_mod.Rdata")
+load("../data/genome/gene_annotations_v0.95_mod.Rdata")
 attr.arm = attr
 
 m =  match( rownames(X.cpm) , attr.human$ensemblID )
@@ -242,11 +242,11 @@ abline(v=median(E,na.rm=T),lty=2)
  
 # DE prior comparisons 
 ```{r}
-load("Y:/genome/gene_annotations_v25.Rdata")
+load("../data/genome/gene_annotations_v25.Rdata")
 m = match(rownames(B), attr.human$ensemblID)
 f.b = !is.na(m)
 f.h = m[f.b]
-delist = read.table("U:/armadillo/de_maggie_gemma/DE_prior.txt", header=T)
+delist = read.table("../data/DE_prior/DE_prior.txt", header=T)
 m = match(delist[,5], attr.human$name[f.h])
 f.d = !is.na(m)
 f.dd = m[f.d] 
@@ -292,7 +292,7 @@ plot ( rowMeans(AAh), rowMeans(BBh), pch=19)
 abline(0,1,col="lightgrey", lwd=2)
 
 
-pdf("U:/armadillo/updated/decomp.pdf")
+pdf("decomp.pdf")
 for(ii in c(0.9, 0.9, 0.95) ){
   filt =  rerank > ii
 x =  rowMeans(AAh)[f.b][f.dd] 
@@ -339,7 +339,7 @@ dev.off()
 
 # eGene recurrence comparisons 
 ```{r}
-load("U:/armadillo/human/eqtl.mat.Rdata")
+load("eqtl.mat.Rdata")
 
 m = match(rownames(B), rownames(eqtl.mat) )
 f.eb = !is.na(m)
@@ -355,7 +355,7 @@ fdrs2 = calc_fdrs_recur(eqtl.mat[,c(1:4,8,9,10)])
 hist( recur.eq2[recur.eq2>0], main="", xlab="Recurrence", col=4, breaks=10 )
 abline(v=fdrs2$Pt)
 
-pdf("U:/armadillo/updated/eqtl.recurrence.pdf")
+pdf("eqtl.recurrence.pdf")
 hist( recur.eq2[recur.eq2>0], main="", xlab="Recurrence", col=4, breaks=10 )
 abline(v=fdrs2$Pt)
 hist(recur.eq[recur.eq>0], col=magma(5)[3], main="", xlab="Recurrence",  breaks=10 )
@@ -388,7 +388,7 @@ conv_smoother2( repDE[f.na], repA[f.na], 1000, xlab, ylab, se_flag= TRUE)
 plot ( rowMeans(AAh), rowMeans(BBh), pch=19)
 abline(0,1,col="lightgrey", lwd=2)
 
-pdf("U:/armadillo/updated/egenescomp.pdf")
+pdf("egenescomp.pdf")
 
 
 for( ii in c(2,2, 4,7)){  

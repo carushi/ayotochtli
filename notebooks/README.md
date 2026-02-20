@@ -39,14 +39,13 @@
 | Figure 2 | File |
 |----------|------|
 | A-B      |[clustering_consistency.R](../scripts/sc_clustering/clustering_consistency.R) |
-| D-F      | |
+| D-F      | [gene_expression_notebook.md](gene_expression_notebook.md)
 | G-H      | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
 
 | Figure 3 | File |
 |----------|------|
-| A-C      | |
-| E        | |
-| F        | |
+| A-C      | [gene_expression_notebook.md](gene_expression_notebook.md)
+| E-F      | [gene_expression_notebook.md](gene_expression_notebook.md)|
 | G-I      | |
 
 | Figure 4 | File |
@@ -67,13 +66,13 @@
 
 | Figure   | File |
 |----------|------|
-| Figure S1 | Twin |
-| Figure S2 | Perfect predictors |
-| Figure S3 | [DEG comparison with Hess 2022](DEG_comparison.ipynb) |
-| Figure S4 | Average predictability |
-| Figure S5 | [human_notebook.md](human_notebook.md) |
-| Figure S6 | [human_notebook.md](human_notebook.md) |
-| Figure S7 | GO |
+| Figure S1 | [human_notebook.md](humannotebook.md)                      |
+| Figure S2 | [gene_expression_notebook.md](gene_expression_notebook.md) |
+| Figure S3 | [DEG comparison with Hess 2022](DEG_comparison.ipynb)      |
+| Figure S4 | [gene_expression_notebook.md](gene_expression_notebook.md) |
+| Figure S5 | [gene_expression_notebook.md](gene_expression_notebook.md) |
+| Figure S6 | [gene_expression_notebook.md](gene_expression_notebook.md) |
+| Figure S7 | [enrichment]() |
 | Figure S8 | ENCODE |
 | Figure S9 | Rank |
 | Figure S10 | [scRNA_scanpy.ipynb](scRNA_scanpy.ipynb)

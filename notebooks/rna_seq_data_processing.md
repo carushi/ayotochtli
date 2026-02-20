@@ -4,7 +4,6 @@ output: html_notebook
 ---
 
 # Download data:
-Note, these should be available soon - apologies if links are still not working... 
 
 - Project here: [PRJNA595587](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA595587)
 - DNA: [PRJNA591897](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA591897)

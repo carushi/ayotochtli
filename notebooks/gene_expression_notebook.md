@@ -3,15 +3,16 @@ title: "Armadillo transcriptional identity"
 output: html_notebook
 ---
 
+
 # Load data
 ```{r}
-source("useful.r")
-load("cpm.strand.comb.Rdata")
-load("counts.strand.comb.Rdata")
-load("gene_annotations_v0.95_mod.Rdata")
-load("armadillo.helper.Rdata")
-load("armadillo_hem.Rdata")
-load("ref.strand.test_train.Rdata")
+DIR <<- "../bulk_transcriptome/data/"
+load(paste0(DIR, "cpm_strand_comb.Rdata"))
+load(paste0(DIR, "counts_strand_comb.Rdata"))
+load(paste0(DIR, "gene_annotations_v0_95_mod.Rdata"))
+load(paste0(DIR, "armadillo_helper.Rdata"))
+load(paste0(DIR, "armadillo_hem.Rdata"))
+load(paste0(DIR, "ref.strand.test_train.Rdata"))
 # Variables 
 N = dim(X.cpm.all)[1]
 n_quads = 5
@@ -32,7 +33,6 @@ labels = paste(sapply(1:n_quads, function(i) rep(quads[i],n_times)), tlab  )
 sexlabels = unlist(lapply(1:n_quads, function(i) rep(unique(cbind(pData$Quad, pData$Sex) )[i,2],n_times)) ) 
 timelabels = rep(1:n_times, n_quads)
 quadlabels = unlist(lapply(1:n_quads, function(i) rep(unique(cbind(pData$Quad, pData$Sex) )[i,1],n_times))   ) 
-
 
 # Z-scores per quad per timepoint 
 X.zscores = lapply(1:n_qt, function(i)  t(scale( t(X.cpm.all[, (1:4) + 4*(i-1)  ]))))   
@@ -308,7 +308,7 @@ hist( (p.adjust(pvalues[f.zz,1]) ), main="ANOVA q-values", xlab="  q-value"  , c
 ```
 
 ```{r}
-pdf("u:/armadillo/updated/anova.plots.pdf") 
+pdf("anova.plots.pdf") 
 for(j in 1:n_quads){ 
   nnj = min(as.numeric(pData$altID[pData$Quad==j]))  - 1 
   
@@ -865,7 +865,7 @@ for (r in 1:1000){
   tic()
   X.tt1 = X.rank2[,(r_samp)]
   X.tt2 = X.rank2[,(r_samp+n_samp)]
-  X.tt3 = X.rank2[,(r_samp+(n_samp*2)]
+  X.tt3 = X.rank2[,(r_samp+(n_samp*2))]
   
   X.t1 = X.sim[,-(r_samp)]
   X.t2 = X.sim[,-(r_samp+n_samp)]
@@ -890,7 +890,8 @@ for (r in 1:1000){
                 & X.tr3[f.zz,((1:n_q)+n_q*(j-1))] == X.tt3[f.zz,((1:n_q)+n_q*(j-1))]) == n_q )
   )
 
-  
+  save(rand.all, file=paste("null.perfect.pred", "Rdata", sep=".") )
+
 } 
  
 ```
@@ -1369,7 +1370,7 @@ attr.human = attr
 load("gene_annotations_v0.95_mod.Rdata")
 attr.arm = attr
 ### this file is too large, need to upload somewhere else
-netfile="/sonas-hs/gillis/hpc/home/sballouz/sballouz/human/RNAseq/outliers/networks/blood.rerank.Rdata"
+netfile="blood.rerank.Rdata"
 label="blood.rerank"
     nettype= label
 load(netfile)
@@ -1465,7 +1466,7 @@ humanrank = rank(array(sub.blood[bottom]))
 
 # Identity features: GO
 ```{r}
-load("~/sballouz/human/GO/March2019/GO.human.Rdata")
+load("GO.human.Rdata")
 
 annot = GO.human.nonIEA[f.go,]
 rownames(annot) = attr.human$name[f.a]
@@ -1742,155 +1743,3 @@ heatmap.3( (results.mat[filthlm,4:8][  ,]),Colv=F, col=magma(13), ColSideCol=can
  
 ```
 
-
-# Identity: tabula muris
-```{r, eval=FALSE}
-load("../updated/tab_mur_annot.Rdata")
-m = match( attr$name, rownames(annot.tab) )
-f.a = !is.na(m)
-f.go = m[f.a]
-genesetsgo = matrix(0, ncol=dim(annot.tab)[2], nrow=length(attr$name))
-colnames(genesetsgo) = colnames(annot.tab)
-
-for(i in 1:dim(annot.tab)[2]){ genesetsgo[f.a,i] = annot.tab[f.go,i]}
-colSums(annot.tab)
-colSums(genesetsgo)
-genesetsgo = genesetsgo[,(colSums(genesetsgo[f.zz,]) >= 5 )]
-genesetnamesgo = colnames(genesetsgo)
-
-
-xlab="Tubula muris set size"
-nr = 1:dim(genesetsgo)[2]
-nr2 = colSums(genesetsgo[f.zz,]) 
-
-pred.scores.list = list() 
-pval.scores.list = list() 
-pred.indscores.list = list()
-setsizes.scores.list  = list() 
-genesets.scores.list = list() 
-
-i = 1 
-for(k in which(nr2>5) ){ 
-  pred.temp = matrix(0, ncol=3, nrow=5)
-  pval.temp = matrix(0, ncol=3, nrow=5)
-  pred.ind.temp = matrix(0, ncol=3*4, nrow=5)
-  setsizes.temp = matrix(0, ncol=3, nrow=5) 
-  genesets.temp = list() 
-  
-  for(j in 1:5){
-    inds = pData$ID[c(((1:4)+4*(j-1)), ((1:4)+4*(j-1)) + 20, ((1:4)+4*(j-1)) + 40)]
-    ki = ((1:4)+4*(j-1))
-    kj = k*100
-    
-    q1 = genesetsgo[f.zz,k] == 1  
-    q2 = q1
-    q3 = q1
-    
-    t1 = prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], q1) 
-    t2 = prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], q2) 
-    t3 = prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], q3) 
-    
-    pred.temp[j,] = c(t1[[2]],t2[[2]],t3[[2]])
-    pred.ind.temp[j,match(c(t1[[3]],t2[[3]],t3[[3]]), inds)] = 1
-    pval.temp[j,] = pval.raw[match(pred.temp[j,], pval.raw[,1]),2]
-    
-    setsizes.temp[j,] = c(length(q1), length(q2), length(q3)) 
-    genesets.temp[[j]] = list((q1), (q2), (q3))   
-  }
-  pred.scores.list[[i]] = pred.temp
-  pval.scores.list[[i]] = pval.temp
-  pred.indscores.list[[i]] = pred.ind.temp
-  setsizes.scores.list[[i]] = setsizes.temp
-  genesets.scores.list[[i]] = genesets.temp
-  
-  i = i + 1
-}
-
-
-
-cd = sapply(nr, function(i) mean(pred.scores.list[[i]]))
-bc = sapply(nr, function(i) colMeans(pred.scores.list[[i]]))
-ab = sapply(nr, function(i) rowMeans(pred.scores.list[[i]]))
-de = sapply(nr, function(i) (pred.scores.list[[i]]))
-de.pval = sapply(nr, function(i) (pval.scores.list[[i]]))
-bc.pval = matrix(pval.csum[match(bc, pval.csum[,1]),2], nrow=3)
-ab.pval = matrix(pval.rsum[match(ab, pval.rsum[,1]),2], nrow=5)
-cd.pval = pval.sum[match(cd, pval.sum[,1]),2]
-
-
-
-save(
-  genesetsgo, pred.scores.list,
-  pval.scores.list,
-  pred.indscores.list,
-  setsizes.scores.list, 
-  genesets.scores.list,nr, nr2, 
-  file="task1_results_tab_mur.Rdata")
-
-results.mat = cbind(nr, cd,cd.pval, t(ab),t(ab.pval),  t(bc), t(bc.pval),  t(de), t(de.pval))
-
-save(results.mat, file="task1_results_tab_mur.mat.Rdata") 
-
-f.ms= meta.gs.mat$hutchins_annotation == "Blood mesoderm"
-heatmap.3(aurocs.tab[f.ms,], col=magma(100), ColSideCol=candy_colors[pData$Quad])
-
-
-m = match( rownames(aurocs.tab[f.ms,] ), genesetnamesgo )
-ff = !is.na(m)
-f.ms2 = m[ff]
-
-cellypes.col = sample(rainbow(50))[celltypes[f.ms2]] 
-rownames(results.mat ) = genesetnamesgo
-
- 
-m = match( rownames(aurocs.tab[f.ms,] ), genesetnamesgo )
-ff = !is.na(m)
-f.ms2 = m[ff]
-
-cellypes.col = sample(rainbow(50))[celltypes[f.ms2]] 
-rownames(results.mat ) = genesetnamesgo
-
-heatmap.3( (results.mat[f.ms2,4:8][ ,]),Colv=F, col=magma(13), ColSideCol=candy_colors[1:5], labCol=quads, 
-           RowSideCol=cellypes.col) 
-heatmap.3( -log10(results.mat[f.ms2,9:13][ ,]),Colv=F, col=cols5, ColSideCol=candy_colors[1:5], labCol=quads,
-           RowSideCol=cellypes.col) 
-```
-
-# Compositional analysis
-```{r}
-frac = read.table("deconvol/CIBERSORTx_Job5_Adjusted.txt", header=T, sep="\t")
-frac2 = t(frac[,2:7])
-barplot(frac2[,pData$Quad==j], col=inferno(6)) 
-colnames(frac2) = pData$ID
-pdf("cibersort.pdf")
-for(j in 1:5) {
-   heatmap.3( frac2[,pData$Quad==j] , 
-           col= inferno(100), 
-           ColSideCol=tropical_colors[pData$Ind[pData$Quad==j] ] ) 
-
- heatmap.3( frac2[,pData$Quad==j][,order(pData$altID[which(pData$Quad==j)] )] , 
-           col= inferno(100), 
-           ColSideCol=tropical_colors[pData$Ind[pData$Quad==j] ][order(pData$altID[which(pData$Quad==j)] )] , Colv=F)
-} 
-dev.off() 
-
-```
-
-
-# Comparison to historical phenotypic data
-```{r}
-load("data_from_old_papers/table1_scutes_newman1913.Rdata")
-o = order(scutes[,2] ) 
-pdf("data_from_old_papers/historicaldata.pdf")
-boxplot( t(scutes[o,3:6]) ~ scutes[o,2] ) 
-hist((rowSD(scutes[o,3:6]))^2, breaks=20) 
-abline( v = sd( unlist(scutes[,3:6]))^2, lwd=2, col=2 )
-abline( v = mean(rowSD(scutes[o,3:6])^2), lwd=2, col=4 )
-
-load("data_from_old_papers/storrs_1968.Rdata")
-boxplot( X$Body.weight ~ X$Set  )
-
-boxplot( X$Scutes ~ X$Set  )
-dev.off() 
-
-```
