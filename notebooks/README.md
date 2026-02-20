@@ -33,14 +33,14 @@
 | Figure 1 | File |
 |----------|------|
 | B-D      | [Phenotype visualization](Phenotype_evaluation.ipynb) |
-| G-H      | [marker_heatmap_integrated.R](../script/multi_omics/marker_heatmap_integrated.R) |
+| G-H      | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
 | I        | [HVGs cross-quad](gene_expression_notebook.md) | 
     
 | Figure 2 | File |
 |----------|------|
 | A-B      |[clustering_consistency.R](../scripts/sc_clustering/clustering_consistency.R) |
 | D-F      | |
-| G-H      | [marker_heatmap_integrated.R](../script/multi_omics/marker_heatmap_integrated.R) |
+| G-H      | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
 
 | Figure 3 | File |
 |----------|------|
@@ -61,7 +61,7 @@
 | Figure 5 | File |
 |----------|------|
 | A-C        | |
-| D-E        | [marker_heatmap_integrated.R](../script/multi_omics/marker_heatmap_integrated.R) |
+| D-E        | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
 
 ## Supplementary Figure
 
@@ -76,7 +76,7 @@
 | Figure S7 | GO |
 | Figure S8 | ENCODE |
 | Figure S9 | Rank |
-| Figure S10 | scRNA-seq |
+| Figure S10 | [scRNA_scanpy.ipynb](scRNA_scanpy.ipynb)
 | Figure S11 | scATAC-seq |
 | Figure S12 | scATAC-seq2|
 | Figure S13 | [Phenotype_evaluation.ipynb](Phenotype_evaluation.ipynb) |
