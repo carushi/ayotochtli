@@ -1,6 +1,16 @@
 # Single-cell RNA-seq and ATAC-seq analysis for nine-banded armadillo quadruplets
 
 
+
+## Install
+
+```
+git clone --recursive git@github.com:carushi/ayotochtli.git
+```
+
+
+
+
 ## Dependency
 * SnapATAC - scATAC-seq analysis
 * Scanpy - scRNA-seq analysis
@@ -25,5 +35,4 @@
 
 
 
- 
 
