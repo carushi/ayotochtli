@@ -39,7 +39,7 @@ if( !quiet(require("boot")))
   install.packages("boot")
 
 require(EGAD)
-
+require(venn)
 
 ## Colors
 cols = colorpanel(16, "red", "blue")

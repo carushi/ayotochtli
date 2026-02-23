@@ -433,4 +433,4 @@ set.hex.code <- function(x.sp) {
     return(hex_code_list)
 }
 
-genes <<- read.gtf.file()
+genes_gtf <<- read.gtf.file()

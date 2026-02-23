@@ -548,7 +548,8 @@ plot( pval.sum[,1], x15r/sum(x15r), pch=19, xlab="Average score", ylab="Density"
 abline(v=cd[k], col=4, lwd=2)
 abline(v=1, col=2, lty=2 )
 
- 
+# Fig 2D
+
 plot( pval.sum, pch=19, xlab="Average score", ylab="Cummulative Density", type="o")
 abline(v=cd[k], col=4, lty=2)
 abline(h=cd.pval[k], col=4, lty=2)
@@ -587,7 +588,9 @@ save( cr,cr.sd , cr.se , rand.q, nr3,  file=paste0("random.sets.", dataset, ".Rd
 ```
 
 # Plot
+
 ```{r}
+# Fig 2E
 load(paste0("random.sets.", dataset, ".Rdata") )
 
 Y_c = cr[-1]
@@ -653,6 +656,7 @@ dev.off()
 ```
 
 ```{r}
+# Fig S2
 pdf("perfect.pred.prop.pdf")
 hist(log2(1+X.cpm.all[f.zz,]), 
      freq=F, 
@@ -793,23 +797,23 @@ for(ji in which(colSums(perfect.pred.clust) > 5)){
 # Predictive gene models 
 ## Perfect predictor model 1 
 ```{r, eval=FALSE}
-# 
+
 N = dim(X.cpm.all)[1]
 
 rand.all= list()
 for (r in 1:1000){ 
   print(r)
-  tic()
+  #tic()
   X.temp = lapply(1:n_qt, function(i) shuffle_rows(X.cpm.all[,(1:n_q) + n_q*(i-1) ]))
   X.sim = do.call(cbind, X.temp)
-  toc()
+  #toc()
 
-  tic()
+  #tic()
   X.rank = lapply(1:n_qt, function(i)   t(apply(X.sim[,(1:n_q) + n_q*(i-1) ],  1, rank )))   
   X.rank2 = do.call(cbind, X.rank)
-  toc()
+  #toc()
   
-  tic()
+  #tic()
   X.tt1 = X.rank2[,(r_samp)]
   X.tt2 = X.rank2[,(r_samp+n_samp)]
   X.tt3 = X.rank2[,(r_samp+(n_samp*2))]
@@ -829,33 +833,22 @@ for (r in 1:1000){
   X.tr1 = do.call(cbind,X.t1.r )
   X.tr2 = do.call(cbind,X.t2.r )
   X.tr3 = do.call(cbind,X.t3.r )
-  toc() 
+  #toc() 
   
   rand.all[[r]] = sapply(1:n_quads, function(j) 
     sum(rowSums(  X.tr1[f.zz,((1:n_q)+n_q*(j-1))] == X.tt1[f.zz,((1:n_q)+n_q*(j-1))]  
                 & X.tr2[f.zz,((1:n_q)+n_q*(j-1))] == X.tt2[f.zz,((1:n_q)+n_q*(j-1))]  
                 & X.tr3[f.zz,((1:n_q)+n_q*(j-1))] == X.tt3[f.zz,((1:n_q)+n_q*(j-1))]) == n_q )
   )
-
-  save(rand.all, file=paste("null.perfect.pred", "Rdata", sep=".") )
-
 } 
- 
-```
-
-## Perfect predictor nulls
-```{r}
-load(file="null.perfect.pred.Rdata")
-
+  save(rand.all , file="null_perfect_pred.Rdata") 
 
 hist(unlist(rand.all ) , freq=F, col="grey", border=NA, xlim=c(0,100))
 # abline(v=mean(unlist(rand.all ) ), lwd=2, col=1)
 abline(v= colSums(perfect.pred[f.zz,], na.rm=T), col=original_colors[1:5], lwd=2)
 
-
 perfect.pred.ns = colSums(perfect.pred[f.zz,]  )
 rand.pred  = t(do.call (cbind, rand.all ) )
-
 
 perfect.pred.ns.mean =  mean(perfect.pred.ns)
 rand.pred.mean  = rowMeans(rand.pred) 
@@ -864,11 +857,66 @@ hist( rand.pred.mean , freq=F, col="grey", border=NA, xlim=c(0,100))
 abline(v=mean(rand.pred.mean  ), lwd=2, col=1)
 abline(v= perfect.pred.ns.mean , col=4, lwd=2)
 
-```
-## Perfect predictors model 2  (null)
-```{r, eval = FALSE}
-load("model.pred.cds.Rdata")
 
+```
+## Perfect predictors model 2 (null)
+
+```{r}
+
+preds.cds = list()
+maxns = sort(c(10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,193,200,300,400,500,600,700,800,900,1000)) 
+ 
+for( maxn in maxns ){
+  print(maxn)
+  # Adding predictors
+  pred.scores.list = list()
+  n = floor(maxn/5) 
+  for(r in 1:100){
+    X.tt1 = X.tt1.orig
+    X.tr1 = X.tr1.orig
+    X.tt2 = X.tt2.orig
+    X.tr2 = X.tr2.orig
+    X.tt3 = X.tt3.orig
+    X.tr3 = X.tr3.orig
+    # Testing 
+    for(j in 1:5){
+      # j = 1   
+      ki = 1:4 + 4 *(j-1)
+      s1 = sample(sum(f.zz),n)
+      s2 = s1
+      s3 = s1
+      # s2 = sample(sum(f.zz),n)
+      #  s3 = sample(sum(f.zz),n)
+      
+      for(i in ki){
+        X.tt1[f.zz,][s1,i] <- X.tr1[f.zz,][s1,i] 
+        X.tt2[f.zz,][s2,i] <- X.tr2[f.zz,][s2,i]  
+        X.tt3[f.zz,][s3,i] <- X.tr3[f.zz,][s3,i] 
+      }
+    }
+    
+    
+    pred.temp = matrix(0, ncol=3, nrow=5)
+    for(j in 1:5){
+      inds = pData$ID[c(((1:4)+4*(j-1)), ((1:4)+4*(j-1)) + 20, ((1:4)+4*(j-1)) + 40)]
+      ki = ((1:4)+4*(j-1))
+      q1 = 1:sum(f.zz)
+      q2 = q1
+      q3 = q1 
+      t1 = prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], q1) 
+      t2 = prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], q2) 
+      t3 = prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], q3) 
+      pred.temp[j,] = c(t1[[2]],t2[[2]],t3[[2]])
+    }
+    pred.scores.list[[r]] = pred.temp 
+    
+  }
+  preds.cds[[maxn]] = sapply(1:100, function(i) mean(pred.scores.list[[i]]))
+  
+} 
+save(preds.cds, maxns, file="model.preds.cds.Rdata" )
+
+#load("model.preds.cds.Rdata")
 xlab="Number of genes"
 ylab="Average score"
 
@@ -884,14 +932,13 @@ plot( X_c, Y_c, ylim = c(ymin, ymax),   lwd = 4, type = "l", col = 0, bty = "n",
 polygon(c(X_c, rev(X_c)), c(Y_c - std_Y_c, rev(Y_c + std_Y_c)), col = "lightgrey", border = NA)
 points(X_c, Y_c, ylim = c(ymin, ymax) , pch=19, cex=0.5)
 
+
 ```
-
-
 
 ## Perfect predictors model 3 (distributed)
 ```{r, eval = FALSE}
-load("distr.model.comb.Rdata")
-load("models/model.means.shuff.Rdata")
+load("../data/bulk/distr.model.comb.Rdata")
+load("../data/bulk/model.means.shuff.Rdata")
 
 
 means.propv = sapply(1:length(fracs), function(fi) mean( unlist(rand.propv[[fi]]),na.rm=T))
@@ -942,8 +989,8 @@ filled.contour( log10(maxns), propve2.fcs[1:51], ylim=c(0.16,0.5), t( cd.dist.ma
                 xlab="Number of genes",
                 ylab="|log2 FCs|", frame.plot=F,
                 plot.axes = { axis(1, at=0:4, lab=10^(0:4)) ; axis(2);
-                  sapply(1:3, function(i) lines(x[[i]],yo[[i]], col="white", lwd=2)); 
-                  contour(log10(maxns),  propve2.fcs[1:51] ,   t( cd.dist.mat), levels = c(1.5,1.8,2 ), add=T, col="white") ;    
+                sapply(1:3, function(i) lines(x[[i]],yo[[i]], col="white", lwd=2));
+                #contour(log10(maxns),  propve2.fcs[1:51] ,   t( cd.dist.mat), levels = c(1.5,1.8,2 ), add=T, col="white");    
                 }) 
 
 
@@ -952,41 +999,41 @@ filled.contour( log10(maxns), propve2.fcs[1:51], ylim=c(0.16,0.5), t( cd.dist.ma
 
 ## B: X scaffold genes 
 ```{r}
-load("Xscaffolds.Rdata")
+load("../data/ase/Xscaffolds.Rdata")
  
  
-  pred.temp = matrix(0, ncol=3, nrow=5)
-  pval.temp = matrix(0, ncol=3, nrow=5)
-  pred.ind.temp = matrix(0, ncol=3*4, nrow=5)
-  setsizes.temp = matrix(0, ncol=3, nrow=5) 
-  genesets.temp = list() 
-  scorematrix.temp = list() 
+pred.temp = matrix(0, ncol=3, nrow=5)
+pval.temp = matrix(0, ncol=3, nrow=5)
+pred.ind.temp = matrix(0, ncol=3*4, nrow=5)
+setsizes.temp = matrix(0, ncol=3, nrow=5) 
+genesets.temp = list() 
+scorematrix.temp = list() 
+
+for(j in 1:5){
+  inds = pData$ID[c(((1:4)+4*(j-1)), ((1:4)+4*(j-1)) + 20, ((1:4)+4*(j-1)) + 40)]
+  ki = ((1:4)+4*(j-1))
+  m = match( attr$scaffold, scaffoldsX.sub)
+  m = match( attr$scaffold, scaffoldsX.prop3)
+  f.nx = !is.na(m)
   
-  for(j in 1:5){
-    inds = pData$ID[c(((1:4)+4*(j-1)), ((1:4)+4*(j-1)) + 20, ((1:4)+4*(j-1)) + 40)]
-    ki = ((1:4)+4*(j-1))
-    m = match( attr$scaffold, scaffoldsX.sub)
-    m = match( attr$scaffold, scaffoldsX.prop3)
-    f.nx = !is.na(m)
-    
-    q1 = which(f.nx[f.zz] & !is.na(cor.t2t3[[j]][f.zz]))
-    q2 = which(f.nx[f.zz] & !is.na(cor.t1t3[[j]][f.zz])) 
-    q3 = which(f.nx[f.zz] & !is.na(cor.t1t2[[j]][f.zz]))
-    
-    t1 = prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], q1) 
-    t2 = prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], q2) 
-    t3 = prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], q3) 
-    
-    pred.temp[j,] = c(t1[[2]],t2[[2]],t3[[2]])
-    pred.ind.temp[j,match(c(t1[[3]],t2[[3]],t3[[3]]), inds)] = 1
-    pval.temp[j,] = pval.raw[match(pred.temp[j,], pval.raw[,1]),2]
-    
-    setsizes.temp[j,] = c(length(q1), length(q2), length(q3)) 
-    genesets.temp[[j]] = list( (q1),  (q2),  (q3))   
-    scorematrix.temp[[j]] = list( t1[[1]], t2[[1]], t3[[1]] )   
-    
-  }
- 
+  q1 = which(f.nx[f.zz] & !is.na(cor.t2t3[[j]][f.zz]))
+  q2 = which(f.nx[f.zz] & !is.na(cor.t1t3[[j]][f.zz])) 
+  q3 = which(f.nx[f.zz] & !is.na(cor.t1t2[[j]][f.zz]))
+  
+  t1 = prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], q1) 
+  t2 = prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], q2) 
+  t3 = prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], q3) 
+  
+  pred.temp[j,] = c(t1[[2]],t2[[2]],t3[[2]])
+  pred.ind.temp[j,match(c(t1[[3]],t2[[3]],t3[[3]]), inds)] = 1
+  pval.temp[j,] = pval.raw[match(pred.temp[j,], pval.raw[,1]),2]
+  
+  setsizes.temp[j,] = c(length(q1), length(q2), length(q3)) 
+  genesets.temp[[j]] = list( (q1),  (q2),  (q3))   
+  scorematrix.temp[[j]] = list( t1[[1]], t2[[1]], t3[[1]] )   
+  
+}
+
  
 barplot(colMeans(pred.temp), col=mm_colors); abline(h=1, col=4, lty=2)
 barplot(rowMeans(pred.temp), col=candy_colors); abline(h=1, col=4, lty=2)
@@ -995,8 +1042,8 @@ heatmap.3(pred.temp,
           Rowv=F, 
           Colv=F, 
           col=magma(5), 
-          ColSideCol=mm_colors[1:3], 
-          RowSideCol=candy_colors[1:5], 
+          ColSideColors=mm_colors[1:3], 
+          RowSideColors=candy_colors[1:5], 
           labRow=quads, 
           labCol=tlab)
 
@@ -1031,36 +1078,36 @@ abline(v=1, col=2, lty=2)
 
 ## C: ASE feature genes 
 ```{r}
-load("ase.feature.genes.Rdata")
- 
- 
-  pred.temp = matrix(0, ncol=3, nrow=5)
-  pval.temp = matrix(0, ncol=3, nrow=5)
-  pred.ind.temp = matrix(0, ncol=3*4, nrow=5)
-  setsizes.temp = matrix(0, ncol=3, nrow=5) 
-  genesets.temp = list() 
-  scorematrix.temp = list() 
+load("../data/ase/ase.feature.genes.Rdata")
+
+
+pred.temp = matrix(0, ncol=3, nrow=5)
+pval.temp = matrix(0, ncol=3, nrow=5)
+pred.ind.temp = matrix(0, ncol=3*4, nrow=5)
+setsizes.temp = matrix(0, ncol=3, nrow=5) 
+genesets.temp = list() 
+scorematrix.temp = list() 
+
+for(j in 1:5){
+  inds = pData$ID[c(((1:4)+4*(j-1)), ((1:4)+4*(j-1)) + 20, ((1:4)+4*(j-1)) + 40)]
+  ki = ((1:4)+4*(j-1))
+  q1 = which(!is.na(cor.t2t3[[j]][f.zz]) & !is.na(match( attr$ensemblID[f.zz], feature.genes[[j]][[1]])))
+  q2 = which(!is.na(cor.t1t3[[j]][f.zz]) & !is.na(match( attr$ensemblID[f.zz], feature.genes[[j]][[2]]))) 
+  q3 = which(!is.na(cor.t1t2[[j]][f.zz]) & !is.na(match( attr$ensemblID[f.zz], feature.genes[[j]][[3]]))) 
+
+  t1 = prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], q1) 
+  t2 = prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], q2) 
+  t3 = prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], q3) 
   
-  for(j in 1:5){
-    inds = pData$ID[c(((1:4)+4*(j-1)), ((1:4)+4*(j-1)) + 20, ((1:4)+4*(j-1)) + 40)]
-    ki = ((1:4)+4*(j-1))
-    q1 = which(!is.na(cor.t2t3[[j]][f.zz]) & !is.na(match( attr$ensemblID[f.zz], feature.genes[[j]][[1]])))
-    q2 = which(!is.na(cor.t1t3[[j]][f.zz]) & !is.na(match( attr$ensemblID[f.zz], feature.genes[[j]][[2]]))) 
-    q3 = which(!is.na(cor.t1t2[[j]][f.zz]) & !is.na(match( attr$ensemblID[f.zz], feature.genes[[j]][[3]]))) 
+  pred.temp[j,] = c(t1[[2]],t2[[2]],t3[[2]])
+  pred.ind.temp[j,match(c(t1[[3]],t2[[3]],t3[[3]]), inds)] = 1
+  pval.temp[j,] = pval.raw[match(pred.temp[j,], pval.raw[,1]),2]
   
-    t1 = prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], q1) 
-    t2 = prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], q2) 
-    t3 = prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], q3) 
-    
-    pred.temp[j,] = c(t1[[2]],t2[[2]],t3[[2]])
-    pred.ind.temp[j,match(c(t1[[3]],t2[[3]],t3[[3]]), inds)] = 1
-    pval.temp[j,] = pval.raw[match(pred.temp[j,], pval.raw[,1]),2]
-    
-    setsizes.temp[j,] = c(length(q1), length(q2), length(q3)) 
-    genesets.temp[[j]] = list( (q1),  (q2),  (q3))   
-    scorematrix.temp[[j]] = list( t1[[1]], t2[[1]], t3[[1]] )   
-    
-  }
+  setsizes.temp[j,] = c(length(q1), length(q2), length(q3)) 
+  genesets.temp[[j]] = list( (q1),  (q2),  (q3))   
+  scorematrix.temp[[j]] = list( t1[[1]], t2[[1]], t3[[1]] )   
+  
+}
 
  
 barplot(colMeans(pred.temp), col=mm_colors); abline(h=1, col=4, lty=2)
@@ -1070,8 +1117,8 @@ heatmap.3(pred.temp,
           Rowv=F, 
           Colv=F, 
           col=magma(5), 
-          ColSideCol=mm_colors[1:3], 
-          RowSideCol=candy_colors[1:5], 
+          ColSideColors=mm_colors[1:3], 
+          RowSideColors=candy_colors[1:5], 
           labRow=quads, 
           labCol=tlab)
  
@@ -1093,10 +1140,10 @@ abline(v=1, col=2, lty=2)
 # Coexpression analysis
 ## Make armadillo aggregate network
 ```{r, eval=FALSE}
-
+require(matrixStats)
 exprs = X.cpm.all
 genes =rownames( X.cpm.all)
-keep = rowSums(exprs) > 0
+keep = (rowSums(exprs) > 0) & (rowSds(exprs) > 0)
 
 
 for( i in 1:n_quads){
@@ -1122,10 +1169,13 @@ for( i in 1:n_quads){
       
    }
 }
-
+net = NULL
+gc()
 save(agg, file="coexp.agg.Rdata")
 
 agg.rank =  matrix(rank(agg, na.last = "keep", ties.method = "average"), nrow=dim(agg)[1], ncol=dim(agg)[2] )
+agg = NULL
+gc()
 rownames(agg.rank) = rownames(agg)
 colnames(agg.rank) = rownames(agg)
 agg.rank = agg.rank/max(agg.rank, na.rm=T)
@@ -1141,11 +1191,12 @@ save(agg.rank, file="coexp.agg.rank.Rdata")
 for( i in 1:n_quads){
   print(i) 
   sub = sub * 0 
-  agg = net * 0 
+  agg = sub * 0   
   for (k in 1:3) {
      print(k) 
       load(file=paste("coexp.quad",i,"t", k, "Rdata", sep=".") )
-      agg = rowSums( cbind(agg, net), na.rm=T) 
+      if (k == 1) agg = rowSums( agg, na.rm=T) 
+      else agg = rowSums( cbind(agg, net), na.rm=T) 
   }
   print("agg")
   agg = rank(agg, na.last = "keep", ties.method = "average")
@@ -1281,11 +1332,11 @@ abline(v= mean( unlist(aurocs.loo.list[[i]] )), col=1, lwd=2)
 
 ## GO for armadillos
 ```{r}
-load("GO.human.Rdata")
+load("../data/genome/GO.human.Rdata")
 gosums = colSums(GO.human.nonIEA )
 annot =  GO.human.nonIEA 
 
-load("coexp/coexp.aggr.Rdata")
+load("coexp.agg.Rdata")
 library(EGAD)
 
 # Only use homologs
@@ -1383,7 +1434,7 @@ barplot(t(aurocs.hist/10), col=rev(candy_colors[1:5] ) , ylim=c(0,1.5), border=N
 
 
 
-load("../coexp/perfect.pred.clust.human.bloodagg.reranked.Rdata")
+load("perfect.pred.clust.human.bloodagg.reranked.Rdata")
 filt = (colSums(perfect.pred.human.clust)[colSums(perfect.pred.human.clust) > 0] > 1  )
 aurocs.loo.list$human = aurocs[[1]][filt,1]
 
@@ -1391,20 +1442,15 @@ aurocs.loo.list$human = aurocs[[1]][filt,1]
 aurocs.hum = sapply(5:1, function(i) hist(aurocs.loo.list$human , breaks=hb$breaks, freq=F)$density )   
 
 
-load("../coexp/null_modules.blood.Rdata")
+load("/null_modules.blood.Rdata")
 hist(aurocs.null, breaks=hb$breaks, col="lightgrey", border=NA, freq=F, main="", xlab="AUROCs")
 abline(v=mean(aurocs.loo.list$human), lwd=2, col=2 ) 
 abline(v=mean(aurocs.null), lty=2, lwd=2 ) 
 
 
-load("")
 bottom = row(sub.arm) > col(sub.arm)
 armrank = rank(array(sub.arm[bottom]))
 humanrank = rank(array(sub.blood[bottom]))
-
-#pdf("temp.pdf")
-#EGAD::conv_smoother( armrank, humanrank,  xlab="arm", ylab="human", 1000)
-#dev.off() 
 
 
 ```
@@ -1413,7 +1459,7 @@ humanrank = rank(array(sub.blood[bottom]))
 
 # Identity features: GO
 ```{r}
-load("GO.human.Rdata")
+load("../data/genome/GO.human.Rdata")
 
 annot = GO.human.nonIEA[f.go,]
 rownames(annot) = attr.human$name[f.a]
@@ -1529,16 +1575,16 @@ heatmap.3( (results.mat[filt1,4:8][filt1_sig,]),Colv=F, col=magma(13), ColSideCo
 ```
 
 ```{r}
-load("coexp/aurocs.go1.blood.clust.Rdata") 
+load("aurocs.go1.blood.clust.Rdata") 
 aurocs.go1.blood = aurocs.go1 
-load("coexp/aurocs.go1.arm.clust.Rdata") 
+load("aurocs.go1.arm.clust.Rdata") 
 aurocs.go1.arm = aurocs.go1 
 
 m = match(rownames(aurocs.go1.blood[[1]]), rownames(aurocs.go1.arm[[1]] ) )
 f.h = !is.na(m) 
 f.a = m[f.h]
 
-load("coexp/annot.agg.Rdata") 
+load("annot.agg.Rdata") 
 mn = match( names(aurocs.go1.blood[[1]][f.h,1]), names(gosums )) 
 
 
@@ -1579,7 +1625,7 @@ abline(h=mean(y), col="lightgrey", lty=2 )
 # Identity features: MsigDB
 ```{r}
 
-load(file="msignrunlater.Rdata" )
+load(file="../data/genome/msign.Rdata" )
 
 xlab="MsigDB set size"
 nr = 1:dim(genesetsgo)[2]
@@ -1628,13 +1674,13 @@ for(k in which(nr2>5) ){
   i = i + 1
 }
 
+index = length(which(nr2>5))
 
-
-cd = sapply(nr, function(i) mean(pred.scores.list[[i]]))
-bc = sapply(nr, function(i) colMeans(pred.scores.list[[i]]))
-ab = sapply(nr, function(i) rowMeans(pred.scores.list[[i]]))
-de = sapply(nr, function(i) (pred.scores.list[[i]]))
-de.pval = sapply(nr, function(i) (pval.scores.list[[i]]))
+cd = sapply(1:index, function(i) mean(pred.scores.list[[i]]))
+bc = sapply(1:index, function(i) colMeans(pred.scores.list[[i]]))
+ab = sapply(1:index, function(i) rowMeans(pred.scores.list[[i]]))
+de = sapply(1:index, function(i) (pred.scores.list[[i]]))
+de.pval = sapply(1:index, function(i) (pval.scores.list[[i]]))
 bc.pval = matrix(pval.csum[match(bc, pval.csum[,1]),2], nrow=3)
 ab.pval = matrix(pval.rsum[match(ab, pval.rsum[,1]),2], nrow=5)
 cd.pval = pval.sum[match(cd, pval.sum[,1]),2]
