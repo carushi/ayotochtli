@@ -269,7 +269,7 @@ runMitLineage <- function(
 	return(read.table(paste(output.prefix, "_peaks.narrowPeak", sep="")));
 }
 
-
+# From SnapATAC library (customize for our own environment)
 #' Call Peaks Using MACS2 For All Clusters
 #'
 #' Identify peaks for all clusters. Fragments belonging to each subset or cluster of cells 

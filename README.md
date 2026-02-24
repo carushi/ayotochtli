@@ -2,19 +2,17 @@
 
 
 
-## Install
+## How to download
 
 ```
 git clone --recursive git@github.com:carushi/ayotochtli.git
 ```
 
 
-
-
 ## Dependency
-* SnapATAC - scATAC-seq analysis
+* SnapATAC (v1) - scATAC-seq analysis
 * Scanpy - scRNA-seq analysis
-* Seurat - Integrative analysis
+* Seurat (CCA)- Integrative analysis
 
 ## References
 ### Preprint 

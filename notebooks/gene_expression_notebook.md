@@ -558,7 +558,7 @@ abline(v=1, col=2, lty=2)
 
 # Null - this takes time, run only once 
 ```{r, eval=FALSE }
-filename="ref.strand.test_train.Rdata"; dataset ="ref.stranded"
+filename="cpm_test_train.Rdata"; dataset ="cpm"
 
 nr3 = unique(round(10^((1:430)/100)  ))
 nr3 = nr3[nr3 < sum(f.zz)]
@@ -570,20 +570,20 @@ for(rri in 1:length(nr3) )    {
   for(j in 1:5){
     ki = ((1:4)+4*(j-1))
     
-    t1.rand = sapply(1:1000, function(ri) prediction_gene_scores( X.tr1[f.zz,ki], X.tt1[f.zz,ki], sample( sum(f.zz), nr3[rri] ))[[2]]) 
-    t2.rand = sapply(1:1000, function(ri) prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], sample( sum(f.zz), nr3[rri] ))[[2]])  
-    t3.rand = sapply(1:1000, function(ri) prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], sample( sum(f.zz), nr3[rri] ))[[2]]) 
+    t1.rand = sapply(1:1000, function(ri) prediction_gene_scores(X.tr1[f.zz,ki], X.tt1[f.zz,ki], sample(sum(f.zz), nr3[rri]))[[2]]) 
+    t2.rand = sapply(1:1000, function(ri) prediction_gene_scores( X.tr2[f.zz,ki], X.tt2[f.zz,ki], sample(sum(f.zz), nr3[rri]))[[2]])  
+    t3.rand = sapply(1:1000, function(ri) prediction_gene_scores( X.tr3[f.zz,ki], X.tt3[f.zz,ki], sample(sum(f.zz), nr3[rri]))[[2]]) 
     rand.q2[[j]] = cbind(t1.rand, t2.rand, t3.rand)
   }
-  rand.q[[rri]]= rowMeans(do.call(cbind, rand.q2 ))
+  rand.q[[rri]]= rowMeans(do.call(cbind, rand.q2))
   
 } 
 
-cr = sapply(1:length(nr3), function(i) mean(rand.q[[i]] ) ) 
-cr.sd = sapply(1:length(nr3), function(i) sd(rand.q[[i]] ) )
-cr.se = sapply(1:length(nr3), function(i) se(rand.q[[i]] ) )
+cr = sapply(1:length(nr3), function(i) mean(rand.q[[i]])) 
+cr.sd = sapply(1:length(nr3), function(i) sd(rand.q[[i]]))
+cr.se = sapply(1:length(nr3), function(i) se(rand.q[[i]]))
 
-save( cr,cr.sd , cr.se , rand.q, nr3,  file=paste0("random.sets.", dataset, ".Rdata") ) 
+save(cr, cr.sd, cr.se, rand.q, nr3, file=paste0("random.sets.", dataset, ".Rdata")) 
 
 ```
 
@@ -803,17 +803,10 @@ N = dim(X.cpm.all)[1]
 rand.all= list()
 for (r in 1:1000){ 
   print(r)
-  #tic()
   X.temp = lapply(1:n_qt, function(i) shuffle_rows(X.cpm.all[,(1:n_q) + n_q*(i-1) ]))
   X.sim = do.call(cbind, X.temp)
-  #toc()
-
-  #tic()
   X.rank = lapply(1:n_qt, function(i)   t(apply(X.sim[,(1:n_q) + n_q*(i-1) ],  1, rank )))   
   X.rank2 = do.call(cbind, X.rank)
-  #toc()
-  
-  #tic()
   X.tt1 = X.rank2[,(r_samp)]
   X.tt2 = X.rank2[,(r_samp+n_samp)]
   X.tt3 = X.rank2[,(r_samp+(n_samp*2))]
@@ -841,7 +834,7 @@ for (r in 1:1000){
                 & X.tr3[f.zz,((1:n_q)+n_q*(j-1))] == X.tt3[f.zz,((1:n_q)+n_q*(j-1))]) == n_q )
   )
 } 
-  save(rand.all , file="null_perfect_pred.Rdata") 
+save(rand.all , file="null_perfect_pred.Rdata") 
 
 hist(unlist(rand.all ) , freq=F, col="grey", border=NA, xlim=c(0,100))
 # abline(v=mean(unlist(rand.all ) ), lwd=2, col=1)
@@ -937,6 +930,7 @@ points(X_c, Y_c, ylim = c(ymin, ymax) , pch=19, cex=0.5)
 
 ## Perfect predictors model 3 (distributed)
 ```{r, eval = FALSE}
+# Made by models.R
 load("../data/bulk/distr.model.comb.Rdata")
 load("../data/bulk/model.means.shuff.Rdata")
 

@@ -46,22 +46,22 @@
 |----------|------|
 | A-C      | [gene_expression_notebook.md](gene_expression_notebook.md) |
 | E-F      | [gene_expression_notebook.md](gene_expression_notebook.md) |
-| G-I      | |
+| G        | [pred_identity.R](../scripts/multi_omics/pred_identity.R)  |
+| H-I      | [analyze_gene_set_and_predictors.R](../scripts/multi_omics/analyze_gene_set_and_predictors.R)  |
 
 | Figure 4 | File |
 |----------|------|
-| A        | |
-| B        | |
-| D-F      | |
-| G
+| A-F        | [seurat_obj_analysis.R](../scripts/sc_clustering/seurat_obj_analysis.R)|
+| G        | [pred_identity.R](../scripts/multi_omics/pred_identity.R)            |
 | H-I      | [celltype_inference.R](../scripts/sc_clustering/celltype_inference.R)|
-| J        | [snap_obj_analysis.R](../scripts/sc_clustering/snap_obj_analysis.R) |
+| J        | [snap_obj_analysis.R](../scripts/sc_clustering/snap_obj_analysis.R)  |
 
 
 | Figure 5 | File |
 |----------|------|
-| A-C        | |
-| D-E        | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
+| A        | [seurat_obj_analysis.R](../scripts/sc_clustering/seurat_obj_analysis.R)|
+| B-C      | [analyze_gene_set_and_predictors.R](../scripts/multi_omics/analyze_gene_set_and_predictors.R)|
+| D-E      | [marker_heatmap_integrated.R](../scripts/multi_omics/marker_heatmap_integrated.R) |
 
 ## Supplementary Figure
 

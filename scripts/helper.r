@@ -473,24 +473,25 @@ count_recur <- function(data,nmax){
   return(res)
 }
 
+if (!file.exists("armadillo.helper.Rdata")) {
 
+    ## Convolved distributions for armadillos 
+    A = count_identities_analytic(4)
+    h = hist(A, breaks=c(-1:4))
+    x = h$counts 
 
-## Convolved distributions for armadillos 
-A = count_identities_analytic(4)
-h = hist(A, breaks=c(-1:4))
-x = h$counts 
+    x15r = convolve_x(x,x,14)
+    x5r = convolve_x(x,x,4)
+    x3r = convolve_x(x,x,2)
+    x9r = convolve_x(x,x,8)
 
-x15r = convolve_x(x,x,14)
-x5r = convolve_x(x,x,4)
-x3r = convolve_x(x,x,2)
-x9r = convolve_x(x,x,8)
-
-# Analytic nulls
-pval.rsum = cbind((0:12)/3, rev(cumsum(rev(x3r/sum(x3r)))) ) 
-pval.csum = cbind((0:20)/5, rev(cumsum(rev(x5r/sum(x5r)))) ) 
-pval.sum = cbind((0:60)/15, rev(cumsum(rev(x15r/sum(x15r)))) ) 
-pval.sum2 = cbind((0:36)/9, rev(cumsum(rev(x9r/sum(x9r)))) ) 
-pval.raw = cbind(0:4, rev(cumsum(rev(x/sum(x)))) )
-pval.sum[pval.sum[,2] < 0.5e-15,2]  = 2e-16
-pval.sum2[pval.sum2[,2] < 0.5e-15,2]  = 2e-16
-save(pval.csum, pval.raw, pval.rsum, pval.sum, pval.sum2, x15r, x9r, x5r, x3r, x, convolve_x, quadlabels, timelabels,sexlabels, labels, quads, tlab, lane, sex, quad, pData, count_identities_analytic, count_identity_mod, prediction_gene_scores, original_colors, tropical_colors, mm_colors,  candy_colors, file="armadillo.helper.Rdata")
+    # Analytic nulls
+    pval.rsum = cbind((0:12)/3, rev(cumsum(rev(x3r/sum(x3r)))) ) 
+    pval.csum = cbind((0:20)/5, rev(cumsum(rev(x5r/sum(x5r)))) ) 
+    pval.sum = cbind((0:60)/15, rev(cumsum(rev(x15r/sum(x15r)))) ) 
+    pval.sum2 = cbind((0:36)/9, rev(cumsum(rev(x9r/sum(x9r)))) ) 
+    pval.raw = cbind(0:4, rev(cumsum(rev(x/sum(x)))) )
+    pval.sum[pval.sum[,2] < 0.5e-15,2]  = 2e-16
+    pval.sum2[pval.sum2[,2] < 0.5e-15,2]  = 2e-16
+    save(pval.csum, pval.raw, pval.rsum, pval.sum, pval.sum2, x15r, x9r, x5r, x3r, x, convolve_x, quadlabels, timelabels,sexlabels, labels, quads, tlab, lane, sex, quad, pData, count_identities_analytic, count_identity_mod, prediction_gene_scores, original_colors, tropical_colors, mm_colors,  candy_colors, file="armadillo.helper.Rdata")
+}
