@@ -7,6 +7,8 @@ require(ggplot2)
 load("../bulk_transcriptome/data/GO.arm.Rdata")
 SCRIPT_DIR <<- "../scripts/"
 source(paste0(SCRIPT_DIR, "sc_clustering/multi_sc_base.R"))
+# source(paste0(SCRIPT_DIR, "annotation/go_enrich_hs.R"))
+
 
 
 make.go.mat <- function() {
@@ -31,9 +33,34 @@ colnames(genes.id) <- c("symbol", "entrez")
 go_mat_non <<- subset(go_mat, GO.arm[,4] != 'IEA')
 term2gene_non <<- subset(term2gene, GO.arm[,4] != 'IEA')
 
+ensembl.to.entrez <- function(em_genes) {
+    require(biomaRt)
+    fname = '../data/gene/em.to.ez.tsv'
+    if (file.exists(fname)) {
+        return(read.table(fname, header=T, sep="\t", stringsAsFactor=FALSE))
+    }
+    mart <- biomaRt::useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                            dataset = "novemcinctus_gene_ensembl",
+                            host = "http://www.ensembl.org")
+
+    genes <- getBM(filters = "ensembl_gene_id",
+                attributes = c("ensembl_gene_id", "entrezgene_id", "external_gene_name"),
+                values = em_genes, 
+                mart = mart)
+    write.table(genes, '../data/gene/em.to.ez.tsv', sep="\t")
+    return(genes)
+}
+
 add.id.annotation <- function(gene_set) {
     gene_set <- gene_set[unlist(sapply(gene_set[,'gene_id'], function(x){grepl("^ENSDNOG", x)})),,drop=F]
     if (!any(colnames(gene_set) == 'symbol')) {
+        load("../bulk_transcriptome/data/gene_annotations_v0_95_mod.Rdata")
+        if (any("attr" == objects())) {
+            genes <- attr[,c('ensemblID', 'name')]
+            colnames(genes) = c("gene_id", "name")
+        } else {
+            genes <- ensembl.to.entrez(gene_set)
+        }
         m <- merge(gene_set, genes, by='gene_id', all.x=TRUE)
         colnames(m)[colnames(m) == 'name'] = 'symbol'
         gene_set = m
@@ -85,8 +112,6 @@ gene.set.enrichment <- function(gene_set, background, header) {
     write.table(gene_set, file=paste0('gene_table_', header, '.tsv'), sep="\t")
     gene_set = gene_set[!is.na(gene_set[,'entrez']),]
     background = background[!is.na(background[,'entrez']),]
-    print(head(gene_set))
-    print(head(background))
     for (filt in c('', '_nonIEA')) {
         for (thres in c(dim(gene_set)[1])) {
             prefix = paste0(header, '_', thres, '_cp', filt)

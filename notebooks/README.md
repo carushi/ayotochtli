@@ -73,15 +73,15 @@
 | Figure S4 | [gene_expression_notebook.md](gene_expression_notebook.md) |
 | Figure S5 | [gene_expression_notebook.md](gene_expression_notebook.md) |
 | Figure S6 | [gene_expression_notebook.md](gene_expression_notebook.md) |
-| Figure S7 | [enrichment]() |
-| Figure S8 | ENCODE |
-| Figure S9 | Rank |
+| Figure S7 | [analyze_gene_set_and_predictors.R](../scripts/multi_omics/analyze_gene_set_and_predictors.R) |
+| Figure S8 | [analyze_gene_set_and_predictors.R](../scripts/multi_omics/analyze_gene_set_and_predictors.R) |
+| Figure S9 | [pred_identity.R](../scripts/multi_omics/pred_identity.R) |
 | Figure S10 | [scRNA_scanpy.ipynb](scRNA_scanpy.ipynb)
 | Figure S11 | [snap_basic_stats.R](../scripts/sc_clustering/snap_basic_stats.R) and bamPEFragmentSize (deeptools)|
 | Figure S12 | [snap_basic_stats.R](../scripts/sc_clustering/snap_basic_stats.R) |
 | Figure S13 | [Phenotype_evaluation.ipynb](Phenotype_evaluation.ipynb) |
 | Figure S14 | [snap_obj_analysis.R](../scripts/sc_clustering/snap_obj_analysis.R) |
-| Figure S15 | Motif activity |
+| Figure S15 | [seurat_obj_analysis.R](../scripts/sc_clustering/seurat_obj_analysis.R) |
 
 
 

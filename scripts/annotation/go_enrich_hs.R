@@ -2,8 +2,8 @@ require(GO.db)
 require(GOfuncR)
 require(clusterProfiler)
 require(stringr)
-load("../data/genome/GO.arm.Rdata")
-load("../data/genome/homologs.Rdata")
+load("../bulk_transcriptome/data/GO.arm.Rdata")
+load("../bulk_transcriptome/data/homologs.Rdata")
 pathways <- read.table('../data/gene/immune_pathway.txt', header=F, sep="\t", stringsAsFactor=FALSE)
 gtf_name <<- "../data/genome/16-90_transcript_gb.gtf"
 gtf <- read.table(gtf_name, header=F, sep="\t", stringsAsFactor=FALSE)
@@ -149,7 +149,7 @@ species = 'hs'
 
 args = commandArgs(trailingOnly=TRUE)
 if (length(args) < 1) {
-    all_id_file = "final_pseudo_bulk_rna.rds"
+    all_id_file = "../data/singlecell/final_pseudo_bulk_rna.rds"
     # all_id_file = "../data/bam/305264Solo.out/Gene/filtered/features.tsv"
     if (grepl('rds', all_id_file)) {
         x.sp <- readRDS(all_id_file)
