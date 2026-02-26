@@ -1,7 +1,7 @@
 #!/bin/bash
 set +eu
 if [[ -z "$1" ]]; then
-	TOP_DIR=../data/bam_relaxed/
+	TOP_DIR=../data/bam/scATAC/bam_relaxed/
 else
 	TOP_DIR=$1
 fi

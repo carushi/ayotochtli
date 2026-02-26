@@ -1,6 +1,6 @@
 #!/bin/bash
 set +eu
-TOP_DIR=../data/bam/bam_pub_genome/
+TOP_DIR=../data/bam/scATAC/bam_pub_genome/
 # TOP_DIR=$1
 SCRIPT=../scripts/alignment/
 GENOME_SIZE=../data/genome/genome.chrom.sizes
@@ -52,7 +52,7 @@ do
 		--verbose=True
 done
 
-SNAP_DIR=../data/snap_genome_cd4/
+SNAP_DIR=../data/bam/scATAC/snap_genome_cd4/
 mkdir $SNAP_DIR
 mv *.snap $SNAP_DIR
 

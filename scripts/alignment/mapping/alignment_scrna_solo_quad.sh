@@ -1,6 +1,6 @@
 #!/bin/bash
 set -exuo pipefail
-TOP_DIR=../data/scRNA-seq/
+TOP_DIR=../data/bam/scRNA/
 SCRIPT=../scripts/alignment/
 GENOME=../data/genome/quad16-90
 

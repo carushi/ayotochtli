@@ -1,17 +1,22 @@
 #!/bin/bash
 set -exuo pipefail 
-TOP_DIR=../data/scATAC-seq/
-OUT_DIR=$TOP_DIR
+TOP_DIR=../data/bam/scATAC/
+
+STAR=../reference/STAR-2.7.9a/bin/Linux_x86_64/STAR
+SCRIPT=../scripts/alignment
+
 # personal
 # GENOME=../data/genome/quad16-90/
+# OUT_DIR=../data/scATAC/bam_p_cd4/
 # public
-# GENOME=../data/genome/genome/
+GENOME=../data/genome/genome/
+OUT_DIR=../data/scATAC/bam_pub_genome/
 # public refseq
-GENOME=../data/genome/genome_refseq/
+# GENOME=../data/genome/genome_refseq/
+# OUT_DIR=../data/scATAC/bam_pub_refseq/
 
-
-SCRIPT=../scripts/alignment/
-STAR=../reference/STAR-2.7.7a/bin/Linux_x86_64/STAR
+TOP_DIR=../data/bam/scATAC/
+OUT_DIR=$TOP_DIR
 
 for DIR in 307369 307370 307371 307372
 do

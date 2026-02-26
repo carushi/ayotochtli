@@ -1,6 +1,6 @@
 #!/bin/bash
 set -exuo pipefail
-TOP_DIR=../data/scATAC-seq/
+TOP_DIR=../data/bam/scATAC/
 OUT_DIR=$TOP_DIR
 
 STAR=../reference/STAR-2.7.9a/bin/Linux_x86_64/STAR
@@ -11,10 +11,10 @@ SCRIPT=../scripts/alignment
 # OUTDIR=../data/bam_pub_genome_cd4/
 # public
 GENOME=../data/genome/genome/
-OUTDIR=../data/bam_pub_genome/
+OUTDIR=../data/scATAC/bam_pub_genome/
 # public refseq
-GENOME=../data/genome/genome_refseq/
-OUTDIR=../data/bam_pub_refseq/
+# GENOME=../data/genome/genome_refseq/
+# OUTDIR=../data/bam_pub_refseq/
 
 if false ; then
     READFILE=""

@@ -9,18 +9,17 @@ if (raw_data == 'original') {
 } else {
     bam_dir = 'bam_refseq'
 }
-obs_mat <- read.table(file.path('scarmadillo_filt_obs.csv'), header=T, sep=",")
+obs_mat <- read.table(file.path('scarmadillo_filtered_obs.csv'), header=T, sep=",")
 
 print(unique(obs_mat[,'cluster_leiden']))
 if (raw_data != 'refseq') {
-    # obs_mat <- cbind(obs_mat, cluster_type=unlist(sapply(obs_mat[,'cluster_leiden'], predicted.celltype)))
     obs_mat <- obs_mat[,-c(1)]
 }
 
 for (i in 1:4) {
     id = i+3
     sample_id = paste0("30526", id)
-    solo_dir <- file.path('/data/bam', bam_dir, paste0(sample_id, 'Solo.out'), 'Gene', 'filtered')
+    solo_dir <- file.path('../data/scRNA/bam', bam_dir, paste0(sample_id, 'Solo.out'), 'Gene', 'filtered')
     print(solo_dir)
     mat <- readMM(file.path(solo_dir, 'matrix.mtx'))
     print(dim(mat))
@@ -44,15 +43,16 @@ for (i in 1:4) {
     obj[["RNA"]] <- AddMetaData(obj[['RNA']], metadata=features)
     saveRDS(obj, paste0('seurat_scrna_', i, '.rds'))
 }
+
 obj <- NULL
 for (i in 1:4) {
     tobj <- readRDS(paste0('seurat_scrna_', i, '.rds'))
     if (is.null(obj)) obj <- tobj
     else {
-        # stopifnot()
         obj <- merge(obj, y = tobj, project = "scrna")
     }
 
 }
 saveRDS(obj, paste0('seurat_scrna_integrated.rds'))
+
     
