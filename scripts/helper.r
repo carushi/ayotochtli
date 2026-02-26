@@ -40,6 +40,7 @@ if( !quiet(require("boot")))
 
 require(EGAD)
 require(venn)
+require(corrplot)
 
 ## Colors
 cols = colorpanel(16, "red", "blue")

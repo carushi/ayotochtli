@@ -1,32 +1,37 @@
+## Tutorial 
+```
+
+Run DEG_comparison.ipynb (R)
+Run Phenotype_evaluation.ipynb (R)
+Run scRNA_scanpy.ipynb (python)
+Run gene_expression_notebook.md (R)
+Run single_cell_integration.ipynb (R)
+
+```
+
+
 ## Code to reproduce analyses and figures 
 
 ### Data processing 
 - [RNA-seq and WGS processing](rna_seq_data_processing.md)
 - [Genome assessment](genome_analysis.md)
 
-### Allele specific expression (ASE)
-- [Quantification and ASE](ase_analysis_notebook.md)
-- [Simulations](p_est_simulation.ipynb)
-- [SNP binomial modeling](simple_binom_sim.ipynb)
-- [SNP binomial modeling (paired)](simple_binom_pair_sim.ipynb)
-
 ### Bulk expression analysis
 - [Armadillo - human comparisons](human_notebook.md)
 - [Gene-expression analysis](gene_expression_notebook.md)
 
 ### Validation 
-
-* [DEG comparison with Hess 2022](DEG_comparison.ipynb)
-* [Phenotype visualization](Phenotype_evaluation.ipynb)
-* [Identity prediction](Identity_prediction.ipynb)
+- [DEG comparison with Hess 2022](DEG_comparison.ipynb)
+- [Phenotype visualization](Phenotype_evaluation.ipynb)
+- [Identity prediction](Identity_prediction.ipynb)
 
 ## Single-cell analysis
 
-* scRNA-seq
+- scRNA-seq
 
-* scATAC-seq
+- scATAC-seq
 
-* Seurat (joint integration)
+- Seurat (joint integration)
 
 ## Correspondence table 
 
