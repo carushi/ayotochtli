@@ -13,13 +13,11 @@ output: html_notebook
 
 # Reference genomes  
 ## Setup genome index
+
 Create genome file with spike-ins 
 ```
 cat dasNov3.fa spike.fa > dasNov3_spike.fa 
 ```
-
-```
-
 
 ```
 ~/STAR/STAR_2.7  \
@@ -214,7 +212,7 @@ hist(rERCC[!f.a][f.zz], border=NA, col=viridis(10)[3], main="", xlab="Absolute s
 f.old = (attr$assembly=="ensembl")
 
 
-load("U:/armadillo/functionalsets.Rdata")
+load("/armadillo/functionalsets.Rdata")
 # Proportional stability
 g = f.old
 g2 = list() 

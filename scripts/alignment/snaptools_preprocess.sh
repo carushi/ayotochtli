@@ -1,6 +1,6 @@
 #!/bin/bash
 set +eu
-TOP_DIR=../data/bam_pub_genome/
+TOP_DIR=../data/scATAC/bam_quad16_90/
 # TOP_DIR=$1
 SCRIPT=../scripts/alignment/
 GENOME=../data/genome/quad16-90

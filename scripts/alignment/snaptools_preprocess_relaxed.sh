@@ -8,7 +8,7 @@ fi
 echo $TOP_DIR
 SCRIPT=../scripts/alignment
 GENOME=../data/genome/quad16-90
-GENOME_SIZE=../data/genome/genome.chrom.sizes
+GENOME_SIZE=../data/genome/quad16-90.chrom.sizes
 STAR=../reference/STAR-2.7.7a/bin/Linux_x86_64/STAR
 
 activate_genome () {
